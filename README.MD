@@ -1,3 +1,8 @@
+###c platform defnie   
+defined (__FLASHPLAYER__) || defined(_FLASH)  
+defined (__APPLE_CC__)  
+defined (__ANDROID__)  
+
 ###Git Sparse Checkout  
 
     $mkdir project_folder
