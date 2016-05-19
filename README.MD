@@ -1,3 +1,12 @@
+###curl compile error on android "CURL_SIZEOF_LONG definition is missing!"  
+check app/gradle.build, "productFlavors" shoud not be "flavor1", specify a cpu type, than curl can define CURL_SIZEOF_LONG
+
+	productFlavors {
+		create("arm7") {	// should not be "flavor1"
+			ndk.abiFilters.add("armeabi-v7a")
+		}
+	}
+
 ### Gradle exclude cpp files  
 
 	exclude './../../deps/libuv/src/win/*.c'  
