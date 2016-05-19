@@ -1,3 +1,10 @@
+### Gradle exclude cpp files  
+
+	exclude './../../deps/libuv/src/win/*.c'  
+	exclude './../../deps/libuv/src/unix/aix.c'  
+above don't work, you need beow  
+	exclude '**/win/*.c'  
+
 ###c platform defnie   
 defined (__FLASHPLAYER__) || defined(_FLASH)  
 defined (__APPLE_CC__)  
