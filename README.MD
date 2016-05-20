@@ -2,6 +2,9 @@
 check app/gradle.build, "productFlavors" shoud not be "flavor1", specify a cpu type, than curl can define CURL_SIZEOF_LONG
 
 	productFlavors {
+		create("x86-64") {	// for debug
+                	ndk.abiFilters.add("x86_64")
+            	}
 		create("arm7") {	// should not be "flavor1"
 			ndk.abiFilters.add("armeabi-v7a")
 		}
