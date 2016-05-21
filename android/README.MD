@@ -1,4 +1,10 @@
 android tip
+### link java folder in gradle
+
+      sourceSets {
+            main.java.srcDirs += '../../../generated-src/java'
+      }
+
 ### main thread loop  
 there must be a better one
 
