@@ -1,4 +1,11 @@
-android tip
+##android tip  
+### key and signed
+### Generating the release unsigned build .apk
+android studio 2.2
+
+      1. Build->Select Build Variant
+      2. Select xxxRelease
+      
 ### link java folder in gradle
 
       sourceSets {
