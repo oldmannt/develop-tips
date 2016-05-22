@@ -4,7 +4,7 @@ http://www.kafeitu.me/git/2012/03/27/git-submodule.html
 	git add https://github.com/oldmannt/gearsbox_client.git gearsbox
 	cd gearsbox
 	git submodule #show submodules
-	git submodule #submodules registered, then could be download
+	git submodule init #submodules registered, then could be download
 	git submodule update
 	Cloning into 'deps/djinni'...
 	...
