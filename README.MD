@@ -1,4 +1,5 @@
-###git submodule
+###git submodule  
+http://www.kafeitu.me/git/2012/03/27/git-submodule.html
 
 	git add https://github.com/oldmannt/gearsbox_client.git gearsbox
 	cd gearsbox
