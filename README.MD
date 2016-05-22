@@ -1,3 +1,22 @@
+###git submodule
+
+	git add https://github.com/oldmannt/gearsbox_client.git gearsbox
+	cd gearsbox
+	git submodule #show submodules
+	git submodule #submodules registered, then could be download
+	git submodule update
+	Cloning into 'deps/djinni'...
+	...
+	Checking connectivity... done.
+	Submodule path 'deps/djinni': checked out '191940c8a9fe5e459a7defa2c959b5e8423db91b'
+	Cloning into 'deps/gyp'...
+	...
+	Checking connectivity... done.
+	Submodule path 'deps/gyp': checked out '0bb67471bca068996e15b56738fa4824dfa19de0'
+	#don't need to  cd deps/gyp &&git checkout -q 0bb67471bca068996e15b56738fa4824dfa19de0
+	#has been done
+edit .gitmodule to delete submodule
+	
 ###git discard
 
 ####This will unstage all files you might have staged with git add:  
