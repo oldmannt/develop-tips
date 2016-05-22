@@ -16,7 +16,15 @@ http://www.kafeitu.me/git/2012/03/27/git-submodule.html
 	Submodule path 'deps/gyp': checked out '0bb67471bca068996e15b56738fa4824dfa19de0'
 	#don't need to  cd deps/gyp &&git checkout -q 0bb67471bca068996e15b56738fa4824dfa19de0
 	#has been done
-edit .gitmodule to delete submodule
+delete submodule  
+1.Delete the relevant section from the `.gitmodules` file.  
+2.Stage the `.gitmodules` changes `git add .gitmodules`  
+3.Delete the relevant section from `.git/config.`  
+4.Run `git rm --cached path_to_submodule (no trailing slash).`  
+5.Run `rm -rf .git/modules/path_to_submodule`  
+6.Commit `git commit -m "Removed submodule <name>"`  
+7.Delete the now untracked submodule files `rm -rf path_to_submodule`  
+	
 	
 ###git discard
 
