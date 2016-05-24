@@ -1,3 +1,40 @@
+### ARC forbids explicit message send of 'autorelease'
+if Objective-C Automatic Reference Counting is "Yes", then "autorelease" is forbided, will cause the error message below, just delete "autorelease"
+
+	ARC forbids explicit message send of 'autorelease'
+	'autorelease' is unavailable: not available in automatic reference counting mode
+
+### show encoding in sublien text 2  
+view->Show Console enter commond
+
+	view.encoding()  // or below
+	sublime.message_dialog(view.encoding())
+
+### EXC_BAD_ACCESS(code=EXC_I386_GPFLT)
+I got a weired strange problem, in zf_log.c
+
+	CFLog(apple_lvl(msg->lvl), CFSTR("%s"), msg->msg_b); // crash throw EXC_BAD_ACCESS(code=EXC_I386_GPFLT)
+	
+	// add a const char*, then ok, don't crash. but today I change back to above, OK again, I don't know why
+	// if get same cash next time, add "const char*"
+	cosnt char* pp = msg->msg_b;
+	CFLog(apple_lvl(msg->lvl), CFSTR("%s"), msg->msg_b); 
+	
+	typedef struct zf_log_message
+	{
+		int lvl; /* Log level of the message */
+		const char *tag; /* Associated tag (without tag prefix) */
+		char *buf; /* Buffer start */
+		char *e; /* Buffer end (last position where EOL with 0 could be written) */
+		char *p; /* Buffer content end (append position) */
+		char *tag_b; /* Prefixed tag start */
+		char *tag_e; /* Prefixed tag end (if != tag_b, points to msg separator) */
+		char *msg_b; /* Message start (expanded format string) */
+	}
+
+	
+	
+	
 ###git submodule  
 http://www.kafeitu.me/git/2012/03/27/git-submodule.html
 
