@@ -5,8 +5,7 @@
     String className = fullClassName.substring(fullClassName.lastIndexOf(".") + 1);
     String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
 
-### key and signed
-### Generating the release unsigned build .apk
+#### Generating the release unsigned build .apk
 android studio 2.2
 
       1. Build->Select Build Variant
