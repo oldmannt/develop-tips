@@ -1,3 +1,16 @@
+### json format
+
+	"key":"value"
+	"key":123
+	"key":true/false
+	"key":{"key1":"value1",...}
+	"key":[
+		{"key1":"value1",...}
+		{"key1":"value2",...},
+		....
+		{"key1":"value1",...}
+	]
+
 ### ARC forbids explicit message send of 'autorelease'
 if Objective-C Automatic Reference Counting is "Yes", then "autorelease" is forbided, will cause the error message below, just delete "autorelease"
 
