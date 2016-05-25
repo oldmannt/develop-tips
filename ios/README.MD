@@ -1,3 +1,25 @@
+#### distribution
+1.Create App ID
+developer.apple.com->Account->Certificates->Idenitifiers->"+" to create an App ID  
+2.Create Production Certificates(If created, pass)  
+&ensp;&ensp;developer.apple.com->Account->Certificates->Production->"+"->"App Store and Ad Hoc"  
+&ensp;&ensp;Create a CSR file. just do as the page said  
+&ensp;&ensp;Back to the page -> continue-> choose the file you have just created  
+&ensp;&ensp;->download certificate file "*.csr"-> Double click to import  
+3.Create Provisioning Profiles  
+&ensp;&ensp;developer.apple.com->Account->Certificates->  
+&ensp;&ensp;Provisioning Profiles->All->"+"->App Store->continue...->Generate->Download->"YOUR_PROFILE"  
+4.iTunes Connect->new APP  
+5.XCode  
+&ensp;&ensp;BuildSetting->Code Signing->  
+&ensp;&ensp;&ensp;&ensp;Code Signing Identity->IPhone Distribution  
+&ensp;&ensp;&ensp;&ensp;Provisioning Profile->"YOUR_PROFILE"  
+&ensp;&ensp;Genneral->Identity  
+&ensp;&ensp;&ensp;&ensp;Version,Build,Bundle Identifier  
+&ensp;&ensp;&ensp;&ensp;Team, should not have a warnning  
+&ensp;&ensp;Scheme Edit...->Run->Release, uncheck "Debug excutable"  
+&ensp;&ensp;Product->Archive  
+
 #### call C from swift
 
 1.include C header file in XX-Briding-Header.h `#include "usnit.h"'  
