@@ -183,41 +183,6 @@ https://codelabs.developers.google.com/codelabs/android-studio-jni/index.html?in
 the "Editing Did End" event added in storyboard,  but I forget it, when the event send out, but there is no function to handle, or the function is nil, so it crash. It is easy but hard to find
 
 
-###WWDR intermediate certificate expired cause upload app error
-the error message is "missing ios distribution signing identity for "
-https://developer.apple.com/support/certificates/expiration/
-From Apple -
-Thanks for bringing this to the attention of the community and apologies for the issues you’ve been having. This issue stems from having a copy of the expired WWDR Intermediate certificate in both your System and Login keychains. To resolve the issue, you should first download and install the new WWDR intermediate certificate (by double-clicking on the file). Next, in the Keychain Access application, select the System keychain. Make sure to select “Show Expired Certificates” in the View menu and then delete the expired version of the Apple Worldwide Developer Relations Certificate Authority Intermediate certificate (expired on February 14, 2016). Your certificates should now appear as valid in Keychain Access and be available to Xcode for submissions to the App Store.
-
-upload app keyword to keep me rember  
-0. update WWDR
-WWDR intermediate certificate
-1. generate certificate
-https://developer.apple.com/account/ios/certificate/distribution
-2. add app id
-https://developer.apple.com/account/ios/identifier/bundle
-3. uploade app
-configure in xcode, app bundle identifier, version, .....Busild Settings->Code Signing->Code Signing Identity ... Provisioning Profile
-Producte->Archive
-
-###add Admob
-https://developers.google.com/admob/ios/quick-start#prerequisites
-1. install cocoapods
-
-	$ sudo gem install cocoapods
-2. edit podfile
-source 'https://github.com/CocoaPods/Specs.git'
-
-	platform :ios, '7.0'
-
-	target "USNIT" do
-		pod 'Google-Mobile-Ads-SDK', '~> 7.8'
-	end
-3. $ pod update
-4.  adding the two frameworks - CoreBluetooth and SafariServices 
-5.  https://developers.google.com/admob/ios/quick-start  
-i implement by code in AdmobBanner.swift
-
 ###A valid provisioning profile for this executable was not found
 change code signing to Developer
 
