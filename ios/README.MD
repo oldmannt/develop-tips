@@ -14,7 +14,24 @@ source 'https://github.com/CocoaPods/Specs.git'
 3. $ pod update  
 4.  adding the two frameworks - CoreBluetooth and SafariServices 
 5.  https://developers.google.com/admob/ios/quick-start  
-i implement by code in AdmobBanner.swift
+implement by code in AdmobBanner.swift
+
+###update Admob
+modfiy Podfile, from 7.8.0 -> 7.8.1
+
+	source 'https://github.com/CocoaPods/Specs.git'
+	
+	platform :ios, '7.0'
+	
+	target "usnit_app" do
+	-pod 'Google-Mobile-Ads-SDK', '~> 7.8.0'
+	+pod 'Google-Mobile-Ads-SDK', '~> 7.8.1'
+	end
+	
+in project directory run  
+
+	pod update
+
 
 #### distribution
 upload app keyword to keep me rember  
