@@ -1,3 +1,18 @@
+### add constraint for views
+use admob for exsmple
+
+	view.addConstraint(NSLayoutConstraint(item: bannerView, attribute: .Bottom,
+            relatedBy: .Equal, toItem: rootController.view , attribute: .Bottom, multiplier: 1, constant: -offsety))
+
+###set background color of uiview
+
+	m_view.backgroundColor = UIColor(colorLiteralRed: r, green: g, blue: b, alpha: a)
+
+###remove a subview
+get subview variant, invoke removeFromSuperview
+
+	getUIView().removeFromSuperview()
+
 ###add Admob
 https://developers.google.com/admob/ios/quick-start#prerequisites  
 1. install cocoapods
