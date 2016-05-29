@@ -1,3 +1,8 @@
+### Activity Lifecycle
+http://blog.csdn.net/android_tutor/article/details/5772285  
+https://developer.android.com/reference/android/app/Activity.html  
+![image](https://github.com/oldmannt/develop-tips/raw/master/android/activity_lifecycle.png) 
+
 ##android tip  
 ### get source 'file' 'line' 'function' in jave
 
