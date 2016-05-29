@@ -1,3 +1,45 @@
+### add a View Controller to Tab Bar Controller
+Drag a `UITableViewController` instance from the **Object Library** to the workspace and set its class to `YourViewController` in the **Identity Inspector**. Select the view controller's table view and set **Prototype Cells** to 0 in the **Attributes Inspector**.  
+To add the authors view controller to the tab bar controller's array of view controllers, drag from the tab bar controller to the authors view controller, holding down the **Control** key. Select **Relationship Segue > view controllers** from the menu that appears.  
+http://code.tutsplus.com/tutorials/ios-from-scratch-with-swift-exploring-tab-bar-controller--cms-25470  
+![image](https://github.com/oldmannt/develop-tips/raw/master/ios/figure-adding-table-view-controller.jpg)  
+
+
+### passing data to another view controller
+
+	override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+	    if (segue.identifier == "Load View") {
+	        // pass data to next view
+	    }
+	}
+
+### get point from UITagGestureRecognizer
+
+	let point:CGPoint = sender.locationInView(sender.view)
+
+### #selector
+Using #selector will check your code at compile time to make sure the method you want to call actually exists. Even better, if the method doesn’t exist, you’ll get a compile error: Xcode will refuse to build your app, thus banishing to oblivion another possible source of bugs.  
+https://swift.org/blog/swift-2-2-new-features/
+
+	override func viewDidLoad() {
+	    super.viewDidLoad()
+	
+	    navigationItem.rightBarButtonItem =
+	        UIBarButtonItem(barButtonSystemItem: .Add, target: self,
+	                        action: #selector(addNewFireflyRefernce))
+	}
+	
+	func addNewFireflyReference() {
+	    gratuitousReferences.append("Curse your sudden but inevitable betrayal!")
+	}
+
+### detect the type of a variant
+
+	let view:UIView = digitsOnlyTextField;
+    if view is UIControl{
+		print(view.dynamicType) // UITextField
+    }
+
 ### add constraint for views
 use admob for exsmple
 
