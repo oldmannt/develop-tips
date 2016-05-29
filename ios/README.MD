@@ -1,3 +1,12 @@
+### add scrollable scrollview by storyboard
+1. add a scrollview
+2. add a view into scrollview, all the content should be added into this view
+3. add constraints make view's board equal to scrollview's board
+4. add constraints make scrollview's top and bottom equal to toMargin
+5. add constraints make scrollview's width and centerX equal to parent view
+6. add constraints make view's width and height equal to scrollview's parent, set the height constraint's priority to 250
+![image](https://github.com/oldmannt/develop-tips/raw/master/ios/scrollview-storyboard.png)  
+
 ### add a View Controller to Tab Bar Controller
 Drag a `UITableViewController` instance from the **Object Library** to the workspace and set its class to `YourViewController` in the **Identity Inspector**. Select the view controller's table view and set **Prototype Cells** to 0 in the **Attributes Inspector**.  
 To add the authors view controller to the tab bar controller's array of view controllers, drag from the tab bar controller to the authors view controller, holding down the **Control** key. Select **Relationship Segue > view controllers** from the menu that appears.  
