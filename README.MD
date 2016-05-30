@@ -1,3 +1,6 @@
+### shared_from_this causing bad_weak_ptr crash
+using shared_from_this() on an object which has no shared_ptr pointing to it. This violates a precondition of shared_from_this(), namely that at least one shared_ptr must already have been created (and still exist) pointing to this.
+
 ### json format
 
 	"key":"value"
