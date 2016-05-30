@@ -1,3 +1,15 @@
+### constraints conflicting h=--& v=--& xxxx:.midX ==>
+Visual Format Language  
+h->horizontal v->vertical  
+h=--& fixed x, fixed w, flexible,right margin  
+v=--& fixed y, fixed h, flexible,bottom margin  
+add constraints pragmatically, should set `translatesAutoresizingMaskIntoConstraints` false, by default, that is ture, so the autoresizing mask on uiviews are translated to additional constraints, which will conflicting with constraints that you add.
+
+	myTextField.translatesAutoresizingMaskIntoConstraints = false;
+	
+https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/VisualFormatLanguage.html
+https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/DebuggingTricksandTips.html
+
 ### add scrollable scrollview by storyboard
 1. add a scrollview
 2. add a view into scrollview, all the content should be added into this view
