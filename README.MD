@@ -1,6 +1,6 @@
 ### protocbuf
 I want to used python write the data, then read by c++ in ios and android, and flash maybe  
-1. download Protocol Buffers v3.0.0-beta-3 cpp and python, after downloaded just merge
+1. download Protocol Buffers v3.0.0-beta-3 cpp and python, after downloaded just merge  
 2. build protocbuf  
 	https://developers.google.com/protocol-buffers/docs/cpptutorial#defining-your-protocol-format  
 
@@ -11,18 +11,15 @@ I want to used python write the data, then read by c++ in ios and android, and f
 	$ sudo make install
 	$ sudo ldconfig # refresh shared library cache. mac don't need this
 	$ protoc --version 
-	
 	static,shared and exec all in src/.lib, copy the files, then make clean to clean the huge compiled files  
 	I need `libprotobuf.a`, be linked in c++, to read the data files
-
-3. install protocbuf for python
-	https://github.com/google/protobuf/tree/master/python
+3. install protocbuf for python  
+	https://github.com/google/protobuf/tree/master/python  
 
 	$ python setup.py build
 	$ python setup.py test
-	$ sudo python setup.py install
-4. generate .h .cc, .py file for writing and reading
-	#! /usr/bin/env bash
+	$ sudo python setup.py install  
+4. generate .h .cc, .py file for writing and reading  
 
 	base_dir=$(cd "`dirname "0"`" && pwd)
 	proto_input="$base_dir/proto"
@@ -40,7 +37,7 @@ I want to used python write the data, then read by c++ in ios and android, and f
 	   --cpp_out=$cpp_out  \
 	   --python_out=$python_out \
 	   $proto_input/person.proto
-5. make a ios static libarey project
+5. make a ios static libarey project  
 	find src/Makefile.am, check the source files of `libprotobuf.a` that's what I need to build libarey for ios and android, try to write a gyp file
 
 ### import py file in subdirectory
