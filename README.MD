@@ -12,7 +12,7 @@ https://developers.google.com/protocol-buffers/docs/cpptutorial#defining-your-pr
 	$ sudo ldconfig # refresh shared library cache. mac don't need this
 	$ protoc --version 
 static,shared and exec all in src/.lib, copy the files, then make clean to clean the huge compiled files  
-I need `libprotobuf.a`, be linked in c++, to read the data files
+I need `libprotobuf.a`, be linked in c++, to read the data files  
 3.install protocbuf for python  
 https://github.com/google/protobuf/tree/master/python  
 
