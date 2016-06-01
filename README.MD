@@ -1,3 +1,48 @@
+### import py file in subdirectory
+need to add `__init__.py` in the subdirectory
+import uplevel directory
+
+	-- src
+	    |-- mod1.py
+	    |-- lib
+	    |    |-- mod2.py
+	    |	 |-- __init__.py
+	    |-- sub
+	    |    |-- test2.py
+
+	import sys
+	sys.path.append("..")
+	import mod1
+	import mod2.mod2
+### sublime text3 for python
+1. enable `subl` command  
+
+		$ sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /yourpath/subl
+		$ echo "export PATH=~/bin:$PATH" >> ~/.profile
+2. install package control  
+View->Show Console
+
+		import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)  
+then `cmd+shift+P` enter `install Package`, now you can install packages
+3. install SideBarEnhancements  
+4. Anaconda  
+5. GitGutter
+6. SublimeREPL  
+get input
+
+
+### Protocol Buffers
+download protobuf3.0beta3
+
+	$ ./autogen.sh
+	$ ./configure
+	$ make
+	$ make check
+	$ sudo ldconfig # refresh shared library cache. mac don't need this
+	$ protoc --version 
+
+https://developers.google.com/protocol-buffers/docs/cpptutorial#defining-your-protocol-format  
+
 ### shared_from_this causing bad_weak_ptr crash
 using shared_from_this() on an object which has no shared_ptr pointing to it. This violates a precondition of shared_from_this(), namely that at least one shared_ptr must already have been created (and still exist) pointing to this.
 
