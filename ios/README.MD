@@ -1,3 +1,18 @@
+### copy files form bundle to document
+	
+		let res_path = NSBundle.mainBundle().pathForResource("www", ofType: "bin")
+        var doc_path:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        doc_path.appendContentsOf("/www.bin")
+
+        var fileMgr = NSFileManager.defaultManager()
+        if fileMgr.copyItemAtPath(res_path, toPath: doc_path) != true{
+            print("copy done")
+        }
+        else{
+            print("copy failed")
+        }
+
+
 ### constraints conflicting h=--& v=--& xxxx:.midX ==>
 Visual Format Language  
 h->horizontal v->vertical  
