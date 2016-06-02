@@ -1,3 +1,7 @@
+### xcode time.h conflict
+<google/protobuf/stubs/time.h> is conflict with <time.h>
+set `Build Settings->Search Paths->Always Search User Paths` to false
+
 ### protocbuf
 I want to used python write the data, then read by c++ in ios and android, and flash maybe  
 1.download Protocol Buffers v3.0.0-beta-3 cpp and python, after downloaded just merge  
@@ -52,7 +56,7 @@ import uplevel directory
 	import sys
 	sys.path.append("..")
 	import mod1
-	import mod2.mod2
+	import lib.mod2
 ### sublime text3 for python
 1. enable `subl` command  
 
