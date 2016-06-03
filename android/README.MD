@@ -1,3 +1,6 @@
+###
+https://gist.github.com/ph0b/0575b30b67e04f2ec10f
+
 ### Activity Lifecycle
 http://blog.csdn.net/android_tutor/article/details/5772285  
 https://developer.android.com/reference/android/app/Activity.html  
