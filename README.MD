@@ -1,3 +1,14 @@
+
+
+### enumeration value not handled in switch [-Werror=switch] 
+cause by `-Werror` Make all warnings into errors. or `-Werror=switch` make specified warning into errors  
+exclude `-Werror` in gyp file, because that add by the djinni.gyp
+
+		'cflags!': [
+        	 '-Werror',
+        ],
+https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
+
 ### xcode time.h conflict
 <google/protobuf/stubs/time.h> is conflict with <time.h>
 set `Build Settings->Search Paths->Always Search User Paths` to false
