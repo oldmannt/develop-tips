@@ -1,4 +1,29 @@
-
+### python read and copy files
+	import shutil
+	import os
+	
+	file = open("protobuf_file")
+	
+	#level by level
+	os.mkdir('dest')
+	os.mkdir('dest/google')
+	os.mkdir('dest/google/protobuf')
+	
+	for line in file:
+		line=line.strip('\n')
+		src_file = "src/"+line
+		print src_file
+		dest_file = "dest/"+line
+		print dest_file
+		shutil.copyfile(src_file, dest_file)
+		
+	findset = set()
+	findset.add("11")
+	print "11" in findset
+	if not "11" in findset:
+		print "11 in "
+	else:
+		print len(findset)
 
 ### enumeration value not handled in switch [-Werror=switch] 
 cause by `-Werror` Make all warnings into errors. or `-Werror=switch` make specified warning into errors  
