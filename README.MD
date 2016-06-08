@@ -1,3 +1,114 @@
+### breakpad  
+ios  
+1. Fetch depot_tools: 
+	
+	```sh
+	$ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git  
+	#Add depot_tools to your PATH:  
+	$ export PATH=`pwd`/depot_tools:"$PATH"  
+	```
+2. doowload and build breakpad
+
+	```sh
+	mkdir breakpad && cd breakpad  
+	fetch breakpad  
+	cd src
+	./configure && make
+	```
+3. add client/ios/Breakpad.xcodeproj to app project  
+	add breakpad/src to 'search header path'  
+	add breadpad to 'link binary with libraries' in buld phases  
+	c++ standard libaryc++ standard libary
+	set `c++ standard library` to `libc++ (llvm c++ standard library with c++ 11 support)` in `build settings` of breakpad.xcodeprj  
+	`#import "client/ios/BreakpadController.h"` in bridge header file
+4. code
+
+	```swift
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+	// Override point for customization after application launch.
+	BreakpadController.sharedInstance().start(true)
+	//BreakpadController.sharedInstance.setUploadingEnabled(true)
+	return true
+	}
+	
+	func applicationWillTerminate(application: UIApplication) {
+	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+	USNUsnitGen.instance()?.save()
+	BreakpadController.sharedInstance().stop();
+	}
+	```
+5. dump file will write in a path like this(on simulator)   `/Users/dyno/Library/Developer/CoreSimulator/Devices/70C337E8-25F3-499C-A940-7569918BB096/data/Containers/Data/Application/06043C8C-62B8-4A81-9F66-1F99E28D577F/Library/Caches/Breakpad`  
+6. dSYM file
+dSYM file will be generated with app, and in same path with app
+`/Users/dyno/Library/Developer/Xcode/DerivedData/USNIT-gvaeqvitwosbyoaxfpyzuzqjrxov/Build/Products/Release-iphonesimulator`
+7. sym file
+x86_64 is for iphonesimulator
+
+	```sh
+	./dump_syms -a x86_64 usnit_app.app.dSYM > usnit_app.sym 
+	```
+get the fist line of sym file
+
+	MODULE mac x86_64 AD7B5E14DF0F3C6A88DFB22951404F1B0 usnit_app
+8. walk the stack
+
+	```sh
+	mkdir -p symbols/usnit_app/AD7B5E14DF0F3C6A88DFB22951404F1B0
+	mv usnit_app.sym symbols/usnit_app/AD7B5E14DF0F3C6A88DFB22951404F1B0
+	./minidump_stackwalk $dumpfile symbols > crashed.log  
+	```
+9. result in crashed.log
+like  
+
+	Thread 12 (crashed)    
+	 0  myapp.so!AppDelegate::applicationDidFinishLaunching() [AppDelegate.cpp : 44 + 0x4]    
+	     r0 = 0x00000000    r1 = 0x00000001    r2 = 0x5a18a8e8    r3 = 0x5a18a6b8    
+	     r4 = 0x56ea70f0    r5 = 0x5c5c47b8    r6 = 0x00000000    r7 = 0x59f59f24    
+	     r8 = 0x5e5b6c58    r9 = 0x59f59f1c   r10 = 0x5c5c47c8   r12 = 0x00000000    
+	     fp = 0x5e5b6b60    sp = 0x5e5b6b18    lr = 0x5dc2d3e4    pc = 0x5db3e37c   
+actually I failed, I don't get the line, my result like below, I will try in android
+
+	Operating system: iOS
+                  10.11.2 15C50
+	CPU: x86
+	     GenuineIntel family 6 model 58 stepping 9
+	     8 CPUs
+	
+	GPU: UNKNOWN
+	
+	Crash reason:  EXC_BAD_ACCESS / KERN_INVALID_ADDRESS
+	Crash address: 0x0
+	Process uptime: 1 seconds
+	
+	Thread 0 (crashed)
+	 0  usnit_app + 0x14a72c
+	    eip = 0x0014b72c   esp = 0xbfffc7d0   ebp = 0xbfffc7d8   ebx = 0xbfffc810
+	    esi = 0xbfffc810   edi = 0x0014b722   eax = 0xbfffc800   ecx = 0x10f7e20c
+	    edx = 0x04a23490   efl = 0x00010282
+	    Found by: given as instruction pointer in context
+	 1  usnit_app + 0x1289ed
+	    eip = 0x001299ed   esp = 0xbfffc7e0   ebp = 0xbfffc888
+	    Found by: previous frame's frame pointer
+10. auto 
+copy dump_syms minidump_stackwalk .dYSM .dmp and walk.sh in same directory, run `sh walk.sh`. actually I failed, I don't get the line
+
+	```sh
+	if [! -f *.dmp];then
+	echo "\033[1;36m No dump produced. \033[0m"
+	    exit 1
+	fi
+	
+	./dump_syms -a x86_64 usnit_app.app.dSYM > usnit_app.sym 
+	sum=`head -n1 usnit_app.sym | awk '{print $4}'`
+	echo "\033[1;36m $sum \033[0m"
+	
+	mkdir -p symbols/usnit_app/AD7B5E14DF0F3C6A88DFB22951404F1B0
+	mv usnit_app.sym symbols/usnit_app/AD7B5E14DF0F3C6A88DFB22951404F1B0
+	
+	echo "\033[1;36m begin walk \033[0m"
+	./minidump_stackwalk ./*.dmp symbols > crashed.log  
+	echo "\033[1;36m check crashed.log  \033[0m"
+	```
 ### python read and copy files
 	import shutil
 	import os
