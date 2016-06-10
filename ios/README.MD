@@ -1,3 +1,6 @@
+### The Upload to App Store and Validate buttons are grayed out in the Archives Organizer
+	set `Skip Install` to true in static library project
+	
 ### copy files form bundle to document
 	
 		let res_path = NSBundle.mainBundle().pathForResource("www", ofType: "bin")
