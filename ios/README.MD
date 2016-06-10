@@ -1,5 +1,6 @@
 ### The Upload to App Store and Validate buttons are grayed out in the Archives Organizer
 	set `Skip Install` to true in static library project
+	https://developer.apple.com/library/ios/technotes/tn2215/_index.html
 	
 ### copy files form bundle to document
 	
