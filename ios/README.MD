@@ -1,3 +1,24 @@
+### after add subviews in scrollview can't scroll to the end  
+adjest the contentSize of scrollview in `viewDidLayoutSubviews()` of viewcontroller, it be invoked after the constraints apply
+	```swift
+	override func viewDidLayoutSubviews() {
+	        super.viewDidLayoutSubviews()
+	        
+	        var maxHeight : CGFloat = 0
+	        for view in viewUnit.subviews {
+	            let newHeight = view.frame.origin.y + view.frame.height
+	            if newHeight > maxHeight {
+	                maxHeight = newHeight
+	            }
+	        }
+	        // set content size
+	        
+	        viewSC.contentSize = CGSize(width: viewSC.contentSize.width, height: maxHeight)
+	 }
+	 ```
+### show documents directory in Mac's itunes when device connected
+in info.plist add item `Applicaton supports iTunes file sharing` and set `YES`
+
 ### The Upload to App Store and Validate buttons are grayed out in the Archives Organizer
 	set `Skip Install` to true in static library project
 	https://developer.apple.com/library/ios/technotes/tn2215/_index.html
@@ -33,7 +54,7 @@ https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/
 1. add a scrollview
 2. add a view into scrollview, all the content should be added into this view
 3. add constraints make view's board equal to scrollview's board
-4. add constraints make scrollview's top and bottom equal to toMargin
+4. add constraints make scrollview's top and bottom equal to topMargin
 5. add constraints make scrollview's width and centerX equal to parent view
 6. add constraints make view's width and height equal to scrollview's parent, set the height constraint's priority to 250
 ![image](https://github.com/oldmannt/develop-tips/raw/master/ios/scrollview-storyboard.png)  
