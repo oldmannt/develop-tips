@@ -1,7 +1,7 @@
 ### breakpad  
 ios  
 1. Fetch depot_tools: 
-	
+
 	```sh
 	$ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git  
 	#Add depot_tools to your PATH:  
