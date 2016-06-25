@@ -109,7 +109,10 @@ copy dump_syms minidump_stackwalk .dYSM .dmp and walk.sh in same directory, run 
 	./minidump_stackwalk ./*.dmp symbols > crashed.log  
 	echo "\033[1;36m check crashed.log  \033[0m"
 	```
+
 ### python read and copy files
+
+	```python
 	import shutil
 	import os
 	
@@ -135,6 +138,7 @@ copy dump_syms minidump_stackwalk .dYSM .dmp and walk.sh in same directory, run 
 		print "11 in "
 	else:
 		print len(findset)
+	```
 
 ### enumeration value not handled in switch [-Werror=switch] 
 cause by `-Werror` Make all warnings into errors. or `-Werror=switch` make specified warning into errors  
