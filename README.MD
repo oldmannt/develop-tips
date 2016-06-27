@@ -112,7 +112,7 @@ copy dump_syms minidump_stackwalk .dYSM .dmp and walk.sh in same directory, run 
 
 ### python read and copy files
 
-	```python
+	``` python
 	import shutil
 	import os
 	
