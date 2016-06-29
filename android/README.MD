@@ -1,3 +1,13 @@
+### alignParentLeft vs alignParentStart
+It depends on the layout direction. The layout direction can be either left-to-right (start = left, end = right), or right-to-left (vice versa).  
+
+By default, the layout direction is based on the locale (left-to-right for languages like English, right-to-left for languages like Arabic), but you can override it with the layoutDirection XML attribute or setLayoutDirection function.   e.g.:  
+
+android:layoutDirection="ltr"     
+^ will make alignParentStart equivalent to alignParentLeft on all devices.  
+  
+android:layoutDirection="rtl"     
+  
 ### top space, leading space, trailing space
 
     // to parent's top, leading
