@@ -1,3 +1,31 @@
+### permission 
+
+  <uses-permission android:name="android.permission.INTERNET" />
+  
+  
+### avoid call onCreate when rotate
+
+    <activity
+      android:name=".MainActivity"
+      android:configChanges="orientation|keyboardHidden|screenSize">
+    </activity>
+  
+add onConfigurationChanged
+
+    ``` java
+     @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+        }
+    }
+    ```
+
 ### alignParentLeft vs alignParentStart
 It depends on the layout direction. The layout direction can be either left-to-right (start = left, end = right), or right-to-left (vice versa).  
 
