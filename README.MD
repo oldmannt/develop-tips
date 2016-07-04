@@ -1,3 +1,6 @@
+### build cpp
+https://sites.google.com/a/android.com/tools/tech-docs/external-c-builds
+
 ### breakpad  
 ios  
 1. Fetch depot_tools: 
