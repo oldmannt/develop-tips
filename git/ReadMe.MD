@@ -1,3 +1,9 @@
+### add tag
+
+	```sh
+	git tag -a v0.1 -m “it work”
+	```
+
 ### git graphic log
 
 git log --pretty=format:"%h %s" --graph
