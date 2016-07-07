@@ -1,3 +1,11 @@
+### merge branch master and develop
+master is behind, develop forward
+
+	```git
+	git checkout master
+	git merge develop
+	```
+
 ### add tag
 
 	```sh
