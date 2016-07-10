@@ -1,3 +1,6 @@
+###  multilines UILabel
+set numberOfLines to 0 (and the label to word wrap), the label will automatically wrap and use as many of lines as needed.
+
 ### after add subviews in scrollview can't scroll to the end  
 adjest the contentSize of scrollview in `viewDidLayoutSubviews()` of viewcontroller, it be invoked after the constraints apply
 	```swift
