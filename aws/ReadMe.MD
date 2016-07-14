@@ -17,7 +17,9 @@
   52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
   *  *    * * *   ubuntu  sh -x /home/ubuntu/command.sh  # very minute
   0  *    * * *   ubuntu  sh -x /home/ubuntu/command.sh  # very hour's first minute
+  ```
 
+neet to restart
 
 ### new instance can't ping
 console->security groups
