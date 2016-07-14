@@ -19,7 +19,7 @@
   0  *    * * *   ubuntu  sh -x /home/ubuntu/command.sh  # very hour's first minute
   ```
 
-neet to restart
+need to restart
 
 ### new instance can't ping
 console->security groups
