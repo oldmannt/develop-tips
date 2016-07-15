@@ -1,3 +1,8 @@
+### request permission
+if targetSdkVersion if heigher than 23, you need to request permission. so the easy way is set targetSdkVersion lower than 23.
+https://www.aswifter.com/2015/11/04/android-6-permission/
+https://github.com/googlesamples/android-RuntimePermissions
+
 ### adb
 https://developer.android.com/studio/command-line/adb.html#howadbworks
 
@@ -59,12 +64,14 @@ app/CMakeLists.text
 
   ```gradle
   defaultConfig{
-    cmake {
-        //targets "target1"
-        //arguments "-DANDROID_TOOLCHAIN=clang"
-        cFlags "-std=c11","-DZF_LOG_USE_ANDROID_LOG"
-        cppFlags "-std=c++11","-fexceptions","-frtti","-D_GLIBCXX_HAS_GTHREADS"
-        abiFilters "armeabi-v7a", "x86_64"
+    externalNativeBuild{
+        cmake {
+            //targets "target1"
+            //arguments "-DANDROID_TOOLCHAIN=clang"
+            cFlags "-std=c11","-DZF_LOG_USE_ANDROID_LOG"
+            cppFlags "-std=c++11","-fexceptions","-frtti","-D_GLIBCXX_HAS_GTHREADS"
+            abiFilters "armeabi-v7a", "x86_64"
+        }
     }
   }
   externalNativeBuild{
