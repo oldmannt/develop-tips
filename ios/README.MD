@@ -1,3 +1,55 @@
+### opencv Undefined symbols for architecture arm64:
+undefined symbols for architecture arm64:
+“_png_init_filter_function_neon”, referenced from:
+	_png_read_filter_row in opencv2(pngrutil.o)
+ld: symbol(s) not found for architecture arm64
+
+http://answers.opencv.org/question/87370/error-compiling-ios-app-with-opencv-framework/
+"this case it seems your hardware is not supporting NEON optimizations. Could you explicitly disable them in the cmake configuration?"
+I modify 
+	
+	```python
+    if arch.startswith("armv"):
+    	cmakecmd.append("-DENABLE_NEON=ON")
+    ```
+to
+	```python
+    if arch.startswith("arm"):
+    	cmakecmd.append("-DENABLE_NEON=ON")
+	```
+then rebuild opencv2, png link error dismiss.
+  
+
+### opencv building
+
+http://docs.opencv.org/3.1.0/d5/da3/tutorial_ios_install.html#gsc.tab=0
+Make symbolic link for Xcode to let OpenCV build scripts find the compiler, header files etc.
+
+	```sh
+    cd /
+    sudo ln -s /Applications/Xcode.app/Contents/Developer Developer
+    ```
+    
+Build OpenCV framework:
+
+	```sh
+    cd ~/<my_working_directory>
+    python opencv/platforms/ios/build_framework.py ios
+    ```
+
+trubole:
+1. permission, cmake missing
+2. libtool:   error: unrecognised option: '-static'
+modify `execute(["/usr/bin/libtool", "-static", "-o", res] + libs + libs3)`
+to	   `execute(["libtool", "-static", "-o", res] + libs + libs3)`
+I don't know why there two `libtool` in my mac.
+
+libtool
+I get an error when I was building opencv.
+`libtool:   error: unrecognised option: '-static'`
+
+
+
 ###  multilines UILabel
 set numberOfLines to 0 (and the label to word wrap), the label will automatically wrap and use as many of lines as needed.
 
