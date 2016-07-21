@@ -35,7 +35,8 @@ git log --pretty=format:"%h %s" --graph
 ###git submodule  
 http://www.kafeitu.me/git/2012/03/27/git-submodule.html
 
-	git submodule https://github.com/oldmannt/gearsbox_client.git gearsbox
+	```sh
+	git submodule add https://github.com/oldmannt/gearsbox.git gearsbox
 	cd gearsbox
 	git submodule #show submodules
 	git submodule init #submodules registered, then could be download
@@ -50,6 +51,8 @@ http://www.kafeitu.me/git/2012/03/27/git-submodule.html
 	Submodule path 'deps/gyp': checked out '0bb67471bca068996e15b56738fa4824dfa19de0'
 	#don't need to  cd deps/gyp &&git checkout -q 0bb67471bca068996e15b56738fa4824dfa19de0
 	#has been done
+	```
+	
 delete submodule  
 1.Delete the relevant section from the `.gitmodules` file.  
 2.Stage the `.gitmodules` changes `git add .gitmodules`  
