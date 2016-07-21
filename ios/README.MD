@@ -1,3 +1,21 @@
+### compile ffmepg
+	```sh
+	# install yasm 1.2
+	curl http://www.tortall.net/projects/yasm/releases/yasm-1.2.0.tar.gz >yasm.tar.gz
+	tar xzvf yasm.tar.gz
+	cd yasm-1.2.0
+	./configure
+	make
+	sudo make install
+	# or ./configure && make -j 4 && sudo make install
+	
+	# compile script
+	cd /workingdirecotry
+	git clone https://github.com/kewlbear/FFmpeg-iOS-build-script.git
+	cd FFmpeg-iOS-build-script
+	sudo ./build-ffmpeg.sh
+	```
+
 ### opencv Undefined symbols for architecture arm64:
 undefined symbols for architecture arm64:
 “_png_init_filter_function_neon”, referenced from:
