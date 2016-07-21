@@ -8,7 +8,12 @@
 	make
 	sudo make install
 	# or ./configure && make -j 4 && sudo make install
+	```
 	
+download FFmpeg-iOS-build-script, edit `build-ffmpeg.sh`  
+change `#X264=`pwd`/fat-x264` to `X264=`pwd`/fat-x264`
+
+	```sh
 	# compile script
 	cd /workingdirecotry
 	git clone https://github.com/kewlbear/FFmpeg-iOS-build-script.git
