@@ -5,13 +5,11 @@
     def VERSION_CODE = 3
     def VERSION_CODE_ARMV7 = VERSION_CODE*1000+1
     def VERSION_CODE_ARM64 = VERSION_CODE*1000+2
-    
     android {
         defaultConfig {
             applicationId "dyno.fun.usnit"
             versionCode VERSION_CODE
             versionName VERSION_NAME
-    
             externalNativeBuild {
                 cmake {
                     cFlags "-std=c11", "-DZF_LOG_USE_ANDROID_LOG"
@@ -29,7 +27,6 @@
                     }
                 }
             }
-    
             armv64 {
                 versionCode VERSION_CODE_ARM64
                 externalNativeBuild {
@@ -53,7 +50,7 @@
 
 ### multi apk
 
-    ```
+    ```gradle
     android {
         splits {
             abi {
