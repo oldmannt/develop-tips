@@ -1,3 +1,100 @@
+
+### productFlavors multi
+
+    ```gradle
+    def VERSION_CODE = 3
+    def VERSION_CODE_ARMV7 = VERSION_CODE*1000+1
+    def VERSION_CODE_ARM64 = VERSION_CODE*1000+2
+    
+    android {
+        defaultConfig {
+            applicationId "dyno.fun.usnit"
+            versionCode VERSION_CODE
+            versionName VERSION_NAME
+    
+            externalNativeBuild {
+                cmake {
+                    cFlags "-std=c11", "-DZF_LOG_USE_ANDROID_LOG"
+                    cppFlags "-std=c++11", "-fexceptions", "-frtti", "-D_GLIBCXX_HAS_GTHREADS"
+                    //abiFilters "x86_64", "armeabi-v7a", "arm64-v8a"
+                }
+            }
+        }
+        productFlavors {
+            armv7 {
+                versionCode VERSION_CODE_ARMV7
+                externalNativeBuild {
+                    cmake {
+                        abiFilters "armeabi-v7a"
+                    }
+                }
+            }
+    
+            armv64 {
+                versionCode VERSION_CODE_ARM64
+                externalNativeBuild {
+                    cmake {
+                        abiFilters "arm64-v8a"
+                    }
+                }
+            }
+
+            fat {
+                versionCode VERSION_CODE_FAT
+                externalNativeBuild {
+                    cmake {
+                        abiFilters "x86_64", "armeabi-v7a", "arm64-v8a"
+                    }
+                }
+            }
+        }
+    ```
+
+
+### multi apk
+
+    ```
+    android {
+        splits {
+            abi {
+                enable true
+                reset()
+                include 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+                universalApk true
+            }
+        }
+    }
+    import com.android.build.OutputFile
+    ext.versionCodes = ['x86_64':1, 'armeabi-v7a':2, 'arm64-v8a':3]
+    android.applicationVariants.all { variant ->
+        // assign different version code for each output
+        variant.outputs.each { output ->
+            def abiFilter = output.getFilter(OutputFile.ABI)
+            def abiMultiplier = 0
+            if (abiFilter != null) {
+                abiMultiplier = project.ext.versionCodes.get(abiFilter)
+            }
+            output.versionCodeOverride =
+                    abiMultiplier * 1000000 + android.defaultConfig.versionCode
+        }
+    }
+    ```
+but, after split to multi apk, asigned don't work. I don't know why, I try other ways to build multi apks  
+cancel the signment in gradle, and sign apk by sh script
+
+    ```sh
+    APK=$1
+    echo 'sign '$APK
+    KEYSTORE=/Users/dyno/Documents/develop/android/android_dyno_keystore.jks
+    ALIAS=anddroid_dyno
+    ZIPALIGN=/Users/dyno/Library/Android/sdk/build-tools/24.0.0/zipalign
+    
+    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $KEYSTORE -storepass storepasswrd -keypass keypasswrod $APK $ALIAS
+    $ZIPALIGN -v 4 $APK your_project_name.apk
+    ```
+
+this way can work, but I choise another way in gradle, the "productFlavors"
+
 ### request permission
 if targetSdkVersion if heigher than 23, you need to request permission. so the easy way is set targetSdkVersion lower than 23.
 https://www.aswifter.com/2015/11/04/android-6-permission/
@@ -52,7 +149,7 @@ https://developer.android.com/studio/test/index.html
 5. install to device for testing
 
     ```sh
-    adb device
+    adb devices
     adb -s device-id install xxx.apk 
     ```
 
