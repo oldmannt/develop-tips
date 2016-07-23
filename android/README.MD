@@ -1,5 +1,13 @@
+### force make to build a targe
+
+    ```
+    .PHONY: android
+    android:
+        ....
+    ```
 
 ### productFlavors multi
+http://tools.android.com/tech-docs/new-build-system/user-guide
 
     ```gradle
     def VERSION_CODE = 3
@@ -49,6 +57,7 @@
 
 
 ### multi apk
+http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
 
     ```gradle
     android {
