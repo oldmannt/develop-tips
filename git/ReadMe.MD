@@ -1,5 +1,12 @@
+### compare with remote
+
+	```git
+	git fetch origin
+	git diff master origin/master
+	```
+
 ### merge branch master and develop
-master is behind, develop forward
+	master is behind, develop forward
 
 	```git
 	git checkout master
