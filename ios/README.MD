@@ -1,3 +1,6 @@
+### Undefined symbols for architecture x86_64
+if the link errors are all about std::string, it turns out when there isn't cpp file in project, it assumes isn't required. So just add an empty cpp file "justforlink.cpp"
+
 ### compile ffmepg
 	```sh
 	# install yasm 1.2
