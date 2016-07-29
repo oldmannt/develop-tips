@@ -1,3 +1,19 @@
+### how to tell path is file or folder, and iterator folder
+
+	```swift
+    let filemanager:NSFileManager = NSFileManager()
+    var is_dir:ObjCBool = false
+    let files:NSDirectoryEnumerator? = filemanager.enumeratorAtPath(path)
+    while let file = files?.nextObject() as? String {
+        
+        filemanager.fileExistsAtPath(path+"/\(file)", isDirectory: &is_dir)
+        print(is_dir ? "is directory" : "is a file")
+        if file.hasSuffix("json"){
+            print(file)
+        }
+    }
+    ```
+
 ### Undefined symbols for architecture x86_64
 if the link errors are all about std::string, it turns out when there isn't cpp file in project, it assumes isn't required. So just add an empty cpp file "justforlink.cpp"
 
