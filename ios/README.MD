@@ -13,6 +13,34 @@
         }
     }
     ```
+    
+    another way
+    
+    ```swift
+    var subs:[String] = []
+    do {
+        subs = try filemanager.subpathsOfDirectoryAtPath(path)
+    }catch let error as NSError{
+        print("SFUsnitLogic.init write failed \(error.userInfo) ")
+    }
+
+    let totalFiles = subs.count
+    print(totalFiles)
+    for sub in subs {
+        
+        if sub.rangeOfString(".DS_Store") != nil {
+            //a DS_Store file
+        } else if sub.rangeOfString(".xcassets") != nil {
+            //a xcassets file
+        } else if (sub as NSString).substringWithRange(NSRange(location: 0, length: 4)) == ".git" {
+            //a git file
+        } else if sub.hasSuffix("json") {
+            print("json")
+        }
+        let fullPath = path+("/\(sub)")
+        print(fullPath)
+    }
+	```
 
 ### Undefined symbols for architecture x86_64
 if the link errors are all about std::string, it turns out when there isn't cpp file in project, it assumes isn't required. So just add an empty cpp file "justforlink.cpp"
