@@ -1,3 +1,6 @@
+### automaticly open keyboard for textfield
+	text_field.becomeFirstResponder() in didload or didappear
+
 ### how to tell path is file or folder, and iterator folder
 
 	```swift
