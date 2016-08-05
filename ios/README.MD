@@ -1,3 +1,9 @@
+### cmaera fullscreen capture view missing halfly, whem landscapce
+reset frame of previewLayer
+
+	```swift
+	m_previewLayer?.frame = UIScreen.mainScreen().bounds
+	```
 ### automaticly open keyboard for textfield
 	text_field.becomeFirstResponder() in didload or didappear
 
