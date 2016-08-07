@@ -1,3 +1,20 @@
+### ERROR ITMS-90096: "Your binary is not optimized for iPhone 5 
+1. create a png file name "Default-568.png", the size must be 320 by 568, drag it to the root of app project
+2. add below to info.xml
+	
+	```xml
+	<key>UILaunchImages</key>
+	<array>
+	    <dict>
+	        <key>UILaunchImageName</key>
+	        <string>Default-568</string>
+	        <key>UILaunchImageSize</key>
+	        <string>{320, 568}</string>
+	    </dict>
+	</array>
+	```
+done
+
 ### cmaera fullscreen capture view missing halfly, whem landscapce
 reset frame of previewLayer
 
