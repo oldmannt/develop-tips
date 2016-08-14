@@ -1,3 +1,13 @@
+### make UILabel autosize by text
+1. storyboard
+	Editor > Size to Fit Content (keyboard shortcut: Cmd =)
+2. programmatically
+
+	```swift
+	testLabel.numberOfLines = 0
+	testLabel.sizeToFit()
+	```
+
 ### ERROR ITMS-90096: "Your binary is not optimized for iPhone 5 
 1. create a png file name "Default-568.png", the size must be 320 by 568, drag it to the root of app project
 2. add below to info.xml
