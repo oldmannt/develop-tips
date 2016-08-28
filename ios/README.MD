@@ -1,5 +1,7 @@
 ### error:"Loaded nib but the view outlet was not set"
-
+http://stackoverflow.com/questions/4763519/loaded-nib-but-the-view-outlet-was-not-set-new-to-interfacebuilder  
+![image](https://github.com/oldmannt/develop-tips/raw/master/ios/set_view_outlet1.jpg)    
+![image](https://github.com/oldmannt/develop-tips/raw/master/ios/set_view_outlet2.jpg)  
 ### make UILabel autosize by text
 1. storyboard
 	Editor > Size to Fit Content (keyboard shortcut: Cmd =)
