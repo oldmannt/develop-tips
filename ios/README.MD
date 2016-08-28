@@ -1,3 +1,5 @@
+### error:"Loaded nib but the view outlet was not set"
+
 ### make UILabel autosize by text
 1. storyboard
 	Editor > Size to Fit Content (keyboard shortcut: Cmd =)
