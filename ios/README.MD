@@ -1,3 +1,5 @@
+### crash:NSInvalidArgumentException' unrecognized selector sent to instance
+If it happened in button's action, may be the button's action connect to two outlets, one of the outlet's code was delete. 
 ### error:"Loaded nib but the view outlet was not set"
 http://stackoverflow.com/questions/4763519/loaded-nib-but-the-view-outlet-was-not-set-new-to-interfacebuilder  
 ![image](https://github.com/oldmannt/develop-tips/raw/master/ios/set_view_outlet1.jpg)    
