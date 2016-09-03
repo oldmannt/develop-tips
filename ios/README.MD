@@ -31,7 +31,7 @@ http://stackoverflow.com/questions/4763519/loaded-nib-but-the-view-outlet-was-no
 	```
 done
 
-### cmaera fullscreen capture view missing halfly, whem landscapce
+### cmaera fullscreen capture view missing halfly, when landscapce
 reset frame of previewLayer
 
 	```swift
