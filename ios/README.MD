@@ -1,3 +1,24 @@
+### detect rotation
+add `UIDeviceOrientationDidChangeNotification` observer in viewWillAppear, remove observer in viewDidDiss
+	
+	```swift
+	override func viewWillAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.screenRotate), name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidAppear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func screenRotate() {
+        print("screen rotate: \(UIApplication.sharedApplication().statusBarOrientation)")
+        //let ori:UIDeviceOrientation = UIDevice.currentDevice().orientation
+        camera_controller.rotateScreen()
+    }
+	```
+
+
 ### crash:NSInvalidArgumentException' unrecognized selector sent to instance
 If it happened in button's action, may be the button's action connect to two outlets, one of the outlet's code was delete. 
 ### error:"Loaded nib but the view outlet was not set"
