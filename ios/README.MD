@@ -1,3 +1,6 @@
+### CMTime
+	value/timescale = seconds, timescale like fps
+
 ### detect rotation
 add `UIDeviceOrientationDidChangeNotification` observer in viewWillAppear, remove observer in viewDidDiss
 	
