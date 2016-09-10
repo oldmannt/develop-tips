@@ -1,7 +1,7 @@
 ### format string
 	```swift
-	String(format: "1/%.00f", under)
-	String(format: "1/%.01f", under)
+	String(format: "1/%.00f", 9.11) // 9
+	String(format: "1/%.01f", 9.11) // 9.1
 	```
 	
 ### CMTime
