@@ -1,3 +1,9 @@
+### format string
+	```swift
+	String(format: "1/%.00f", under)
+	String(format: "1/%.01f", under)
+	```
+	
 ### CMTime
 	value/timescale = seconds, timescale like fps
 
