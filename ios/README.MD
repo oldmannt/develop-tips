@@ -1,3 +1,23 @@
+### `pan gesture recognizer` to drag view
+1. add an `Pan Gesture Recognizer` in storyboard, and connect to view by control and drag
+2. add action in viewcontroller by control and drag `Pan Gesture Recognizer`
+
+	```swift
+	@IBAction func dragExposureSel(sender: UIPanGestureRecognizer) {
+	        let exposure_sel = sender.view
+	        if nil == view {
+	            return
+	        }
+	        if sender.state == UIGestureRecognizerState.Began ||
+	           sender.state == UIGestureRecognizerState.Changed {
+	            let translation = sender.translationInView(exposure_sel?.superview)
+	            exposure_sel?.center = CGPoint(x: (exposure_sel?.center.x)!+translation.x,
+	                                           y: (exposure_sel?.center.y)!+translation.y)
+	            sender.setTranslation(CGPointZero, inView: view?.superview)
+	        }
+	}
+	```
+
 ### format string
 	```swift
 	String(format: "1/%.00f", 9.11) // 9
