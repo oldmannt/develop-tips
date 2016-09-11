@@ -12,7 +12,7 @@
 2. scale to 0.5 in 0.5 second
 
 	```swift
-	UIView.animateWithDuration(2.0, animations: {
+	UIView.animateWithDuration(0.5, animations: {
                 self.m_exposure_sel.transform = CGAffineTransformScale(self.m_exposure_sel.transform, 0.5, 0.5)
             }, completion: {
                 (value: Bool) in
