@@ -1,3 +1,25 @@
+### animater
+1. fade out in 0.2 second
+	
+	```swift
+	UIView.animateWithDuration(0.2, animations: {
+	    self.blurBg.alpha = 1
+	}, completion: {
+	    (value: Bool) in
+	    self.blurBg.hidden = true
+	})
+	```
+2. scale to 0.5 in 0.5 second
+
+	```swift
+	UIView.animateWithDuration(2.0, animations: {
+                self.m_exposure_sel.transform = CGAffineTransformScale(self.m_exposure_sel.transform, 0.5, 0.5)
+            }, completion: {
+                (value: Bool) in
+                print("tapView done")
+        })
+	```
+
 ### `pan gesture recognizer` to drag view
 1. add an `Pan Gesture Recognizer` in storyboard, and connect to view by control and drag
 2. add action in viewcontroller by control and drag `Pan Gesture Recognizer`
