@@ -1,4 +1,8 @@
-### animater
+### in AutoLayout, we need to move view by constraint
+1. outlets constraint to viewcontroller
+2. update constraint in run time
+
+### animate
 1. fade out in 0.2 second
 	
 	```swift
@@ -27,7 +31,7 @@
 	```swift
 	@IBAction func dragExposureSel(sender: UIPanGestureRecognizer) {
 	        let exposure_sel = sender.view
-	        if nil == view {
+	        if nil == exposure_sel {
 	            return
 	        }
 	        if sender.state == UIGestureRecognizerState.Began ||
@@ -35,7 +39,7 @@
 	            let translation = sender.translationInView(exposure_sel?.superview)
 	            exposure_sel?.center = CGPoint(x: (exposure_sel?.center.x)!+translation.x,
 	                                           y: (exposure_sel?.center.y)!+translation.y)
-	            sender.setTranslation(CGPointZero, inView: view?.superview)
+	            sender.setTranslation(CGPointZero, inView: exposure_sel?.superview)
 	        }
 	}
 	```
