@@ -1,7 +1,7 @@
 ### in AutoLayout, we need to move view by constraint
 1. outlets constraint to viewcontroller
 2. update constraint in run time
-
+views will be reset by constraints after lablel's text change or other conditions
 ### animate
 1. fade out in 0.2 second
 	
