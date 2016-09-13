@@ -1,3 +1,23 @@
+### `CVPixelBufferLockBaseAddress` failed return `kCVReturnInvalidArgument`(-6661)
+this is serious problem...  
+invoke `m_stillImageOutput.captureStillImageAsynchronouslyFromConnection`, get the sampleBuffer in callback  
+
+	```swift
+	CVPixelBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+        CVReturn rt = CVPixelBufferLockBaseAddress(imageBuffer, kCVPixelBufferLock_ReadOnly);
+        ```
+`CVPixelBufferLockBaseAddress` failed return kCVReturnInvalidArgument(-6661), we need to set `PixelFormatType` before invoke `captureStillImageAsynchronouslyFromConnection`
+
+	```swift
+	let dctPixelFormatType : Dictionary<NSString, NSNumber> = [kCVPixelBufferPixelFormatTypeKey : NSNumber(unsignedInt: kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)]
+        
+        m_stillImageOutput.outputSettings = dctPixelFormatType
+
+        if m_captureSession.canAddOutput(m_stillImageOutput) {
+            m_captureSession.addOutput(m_stillImageOutput)
+        }
+	```
+http://stackoverflow.com/questions/9957427/cant-get-cvimagebufferref-in-capturestillimageasynchronouslyfromconnection  
 ### in AutoLayout, we need to move view by constraint
 1. outlets constraint to viewcontroller  
 2. update constraint in run time  
