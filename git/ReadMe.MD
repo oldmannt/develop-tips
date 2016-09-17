@@ -68,7 +68,9 @@ delete submodule
 5.Run `rm -rf .git/modules/path_to_submodule`  
 6.Commit `git commit -m "Removed submodule <name>"`  
 7.Delete the now untracked submodule files `rm -rf path_to_submodule`  
-	
+
+### pushing to remotes
+$git push [remote-name] [branch-name]
 	
 ###git discard
 
