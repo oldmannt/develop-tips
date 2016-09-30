@@ -1,7 +1,27 @@
+### button with tittle under image   
+	
+	```swift
+	class UIButtonBottomTittle: UIButton {
+	    override func layoutSubviews() {
+		super.layoutSubviews()
+
+		let btn_h = self.frame.size.height
+		let img_h = self.imageView?.frame.size.height
+		let lab_h = self.titleLabel?.frame.size.height
+
+		self.imageView?.center.x = self.center.x
+		self.imageView?.frame.origin.y = btn_h - img_h! - lab_h!
+		self.titleLabel?.center.x = self.center.x
+		self.titleLabel?.frame.origin.y = btn_h - lab_h!
+		self.titleLabel?.sizeToFit()
+	    }
+	} 
+	```
+
 ### `CVPixelBufferLockBaseAddress` failed return `kCVReturnInvalidArgument`(-6661)
 this is serious problem...  
 invoke `m_stillImageOutput.captureStillImageAsynchronouslyFromConnection`, get the sampleBuffer in callback  
-
+	
 	```swift
 	CVPixelBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
         CVReturn rt = CVPixelBufferLockBaseAddress(imageBuffer, kCVPixelBufferLock_ReadOnly);
