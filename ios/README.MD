@@ -1,3 +1,6 @@
+### image fit mode
+![image](https://github.com/oldmannt/develop-tips/raw/master/ios/image_fit_mode.png)  
+
 ### button with tittle under image   
 	
 	```swift
