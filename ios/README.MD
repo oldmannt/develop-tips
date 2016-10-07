@@ -1,3 +1,29 @@
+### UITableView add/delete cell by projrammatically
+
+	```swift
+	// build indexpath
+	let indexPath: IndexPath = IndexPath(row: i, section: 0)
+	
+	func deleteItem(index:IndexPath) {
+		m_table_view.beginUpdates()
+		if m_table_view.numberOfRows(inSection: 0) > index.row {
+			m_table_view.deleteRows(at: [index], with: .right)
+		}
+		m_table_view.endUpdates()
+	}
+
+	func addItem(index:IndexPath) {
+		m_table_view.beginUpdates()
+		m_table_view.insertRows(at: [index], with: .right)
+		m_table_view.endUpdates()
+	}
+	```
+
+### open keyword in swift3
+	A open class is accessible and subclassable outside of the defining module. A open class member is accessible and overridable outside of the defining module.  
+	A public class is accessible but not subclassable outside of the defining module. A public class member is accessible but not overridable outside of the defining module.  
+http://stackoverflow.com/questions/38947101/what-is-the-open-keyword-in-swift
+
 ### long press for tableview
 
 	```swift
