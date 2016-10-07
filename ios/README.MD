@@ -1,4 +1,5 @@
 ### UIViewController-rotate-flow
+https://developer.apple.com/library/prerelease/content/featuredarticles/ViewControllerPGforiPhoneOS/TheAdaptiveModel.html#//apple_ref/doc/uid/TP40007457-CH19-SW1
 ![image](https://github.com/oldmannt/develop-tips/raw/master/ios/uiviewcontroller-rotate-flow.png) 
 
 ### UITableView add/delete cell by projrammatically
