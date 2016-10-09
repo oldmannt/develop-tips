@@ -1,3 +1,14 @@
+### share video to another app
+	```swift
+	let cell_data:LPAProjectCellGen? =  LPAProjectListGen.instance()?.getProjectData(-1)	
+	if nil != cell_data{
+
+		let video_url:URL = URL(fileURLWithPath: cell_data!.getPath())
+		let activity_vc = UIActivityViewController(activityItems: [video_url], applicationActivities: nil	)
+		super.m_popbase?.present(activity_vc, animated: true, completion: nil)
+	}
+	```
+
 ### UIViewController-rotate-flow
 https://developer.apple.com/library/prerelease/content/featuredarticles/ViewControllerPGforiPhoneOS/TheAdaptiveModel.html#//apple_ref/doc/uid/TP40007457-CH19-SW1
 ![image](https://github.com/oldmannt/develop-tips/raw/master/ios/uiviewcontroller-rotate-flow.png) 
@@ -131,21 +142,22 @@ views will be reset by constraints after lablel's text change or other condition
 
 	```swift
 	@IBAction func dragExposureSel(sender: UIPanGestureRecognizer) {
-	        let exposure_sel = sender.view
-	        if nil == exposure_sel {
-	            return
-	        }
-	        if sender.state == UIGestureRecognizerState.Began ||
-	           sender.state == UIGestureRecognizerState.Changed {
-	            let translation = sender.translationInView(exposure_sel?.superview)
-	            exposure_sel?.center = CGPoint(x: (exposure_sel?.center.x)!+translation.x,
-	                                           y: (exposure_sel?.center.y)!+translation.y)
-	            sender.setTranslation(CGPointZero, inView: exposure_sel?.superview)
-	        }
+		let exposure_sel = sender.view
+		if nil == exposure_sel {
+			return
+		}
+		if sender.state == UIGestureRecognizerState.Began ||
+		   sender.state == UIGestureRecognizerState.Changed {
+			let translation = sender.translationInView(exposure_sel?.superview)
+			exposure_sel?.center = CGPoint(x: (exposure_sel?.center.x)!+translation.x,
+										   y: (exposure_sel?.center.y)!+translation.y)
+			sender.setTranslation(CGPointZero, inView: exposure_sel?.superview)
+		}
 	}
 	```
 
 ### format string
+
 	```swift
 	String(format: "1/%.00f", 9.11) // 9
 	String(format: "1/%.01f", 9.11) // 9.1
