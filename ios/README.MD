@@ -1,3 +1,15 @@
+### uiviewcontroller lifecycel
+![image](https://github.com/oldmannt/develop-tips/raw/master/ios/uiviewcontroller-lifecycle.png)  
+`loadView` — Creates the view that the controller manages.  
+It’s only called when the view controller is created and only when done programatically. You can override this method in order to create your views manually.
+
+`viewWillLayoutSubviews`  — Called to notify the view controller that its view is about to layout its subviews.  
+This method is called every time the frame changes like for example when rotate or it’s marked as needing layout. It’s the first step where the view bounds are final. If you are not using autoresizing masks or constraints and the view size changes you probably want to update the subviews here.
+
+`viewDidLayoutSubviews` Called to notify the view controller that its view has just laid out its subviews.  
+Make additional changes here after the view lays out its subviews.
+
+
 ### share video to another app
 	```swift
 	let cell_data:LPAProjectCellGen? =  LPAProjectListGen.instance()?.getProjectData(-1)	
