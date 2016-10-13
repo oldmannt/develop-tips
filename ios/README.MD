@@ -1,3 +1,47 @@
+### 240FPS for slomo
+get max frame rate, for iphone 6s is 240
+
+	```swift
+	var max_frame_rate:Float64 = 0.0
+	for format in m_captureDevice!.formats {
+		let ranges = (format as AnyObject).videoSupportedFrameRateRanges as! [AVFrameRateRange]
+		let frame_range = ranges[0]
+		if frame_range.maxFrameRate > max_frame_rate {
+			max_frame_rate = frame_range.maxFrameRate
+			m_max_frame_rate = frame_range
+			m_maxframe_device_format = format as? AVCaptureDeviceFormat
+		}
+	}// end for
+	```  
+http://taylorfranklin.me/2015/01/20/ios-tutorial-developing-240-fps/  
+https://developer.apple.com/library/content/technotes/tn2409/_index.html  
+
+### picker view
+http://codewithchris.com/uipickerview-example/  
+implement `UIPickerViewDelegate` and `UIPickerViewDataSource`
+
+	```swift
+	// count of col
+	public func numberOfComponents(in pickerView: UIPickerView) -> Int{
+        return 1;
+    }
+    
+	// count of row
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return [data].count
+    }
+    
+	// return the tittle of the 'row'th row
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+        return data[row].text
+    }
+    
+	// select callback
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        LPALapseSettingGen.instance()?.selectQuickMode(Int32(row))
+    }
+	```
+
 ### uiviewcontroller lifecycel
 ![image](https://github.com/oldmannt/develop-tips/raw/master/ios/uiviewcontroller-lifecycle.png)  
 `loadView` — Creates the view that the controller manages.  
