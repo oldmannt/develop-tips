@@ -1,3 +1,23 @@
+### timer delay
+
+	```swift
+	 @IBAction func txtFpsChange(_ sender: UITextField) {
+		m_txt_fps_timer?.invalidate()
+		m_txt_fps_timer = nil
+		m_txt_fps_timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(LapseSetterView.delayHandleTxt), userInfo: nil, repeats: false)
+		 */
+	    }
+    
+    func delayHandleTxt() {       
+        let alert:UIAlertController = UIAlertController(title: "alert", message: "fps out of range", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { (act:UIAlertAction) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.m_popbase?.present(alert, animated: true, completion: nil)
+    }
+    ```swift
+
+
 ### 240FPS for slomo
 get max frame rate, for iphone 6s is 240
 
