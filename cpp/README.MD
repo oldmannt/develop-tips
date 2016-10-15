@@ -1,5 +1,5 @@
 ### nice std::function 
-pass a block `[variable](){}` or `std::bind(&class::fun, this,std::placeholders::_1)` to std::function<void()>  
+pass a block `[variable](){}` or `std::bind(&class::fun, this)` to std::function<void()>  
   ```c++
   // a helper class to turn the `TaskInfoGen` api into a std::function based one
     class FnTask final : public TaskExcuserGen {
