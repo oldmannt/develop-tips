@@ -1,5 +1,5 @@
 ### nice std::function 
-pass a block `[variable](){}` or `std::bind(&class::fun, this)` to std::function<void()>  
+pass a lambda block `[variable](){}` or `std::bind(&class::fun, this)` to std::function<void()>  
   ```c++
   // a helper class to turn the `TaskInfoGen` api into a std::function based one
     class FnTask final : public TaskExcuserGen {
@@ -41,3 +41,13 @@ pass a block `[variable](){}` or `std::bind(&class::fun, this)` to std::function
     }
 
   ```
+
+### std::bind
+
+函数使用形式
+bind(f [,t][,…])                                                 // 自动推断
+bind<返回值类型>(f [,t][,…])                                       // 非自动推断
+bind<返回值类型, 函数类型, 绑定器传入参数类型>(f ,[…])                 // 非自动推断
+bind<返回值类型, 函数参数类型, 绑定器传入参数类型>(f [,…])              // 非自动推断
+bind<返回值类型, 类, 绑定器传入参数类型（即对应的类实例）>(T::*f ,t [,…])// 非自动推断
+bind<返回值类型, 类, 函数参数类型, 绑定器传入参数类型（即对应的类实例+函数传入的参数）, >(T::*f ,t [,…])  // 非自动推断
