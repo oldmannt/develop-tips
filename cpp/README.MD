@@ -1,3 +1,78 @@
+### about implement std::bind
+http://en.cppreference.com/w/cpp/utility/functional/bind
+http://blog.think-async.com/2010/04/bind-illustrated.html  
+![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/bind01-plain-function-one-var-zero-args.png) 
+![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/bind02-member-function-one-var-zero-args.png) 
+![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/bind03-member-function-zero-vars-one-arg.png) 
+![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/bind04-member-function-one-var-one-arg.png) 
+![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/bind05-plain-function-one-var-two-args.png) 
+![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/bind06-plain-function-one-var-two-args-second-ignored.png) 
+![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/bind07-plain-function-one-var-two-args-first-ignored.png) 
+![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/bind08-plain-function-one-var-two-args-reordered.png) 
+
+### std::function sample
+http://en.cppreference.com/w/cpp/utility/functional/function
+http://www.jellythink.com/archives/771
+    ```c++
+    #include <functional>
+    #include <iostream>
+
+    struct Foo {
+        Foo(int num) : num_(num) {}
+        void print_add(int i) const { std::cout << num_+i << '\n'; }
+        int num_;
+    };
+
+    void print_num(int i)
+    {
+        std::cout << i << '\n';
+    }
+
+    struct PrintNum {
+        void operator()(int i) const
+        {
+            std::cout << i << '\n';
+        }
+    };
+
+    int main()
+    {
+        // store a free function
+        std::function<void(int)> f_display = print_num;
+        f_display(-9);
+
+        // store a lambda
+        std::function<void()> f_display_42 = []() { print_num(42); };
+        f_display_42();
+
+        // store the result of a call to std::bind
+        std::function<void()> f_display_31337 = std::bind(print_num, 31337);
+        f_display_31337();
+
+        // store a call to a member function
+        std::function<void(const Foo&, int)> f_add_display = &Foo::print_add;
+        const Foo foo(314159);
+        f_add_display(foo, 1);
+
+        // store a call to a data member accessor
+        std::function<int(Foo const&)> f_num = &Foo::num_;
+        std::cout << "num_: " << f_num(foo) << '\n';
+
+        // store a call to a member function and object
+        using std::placeholders::_1;
+        std::function<void(int)> f_add_display2 = std::bind( &Foo::print_add, foo, _1 );
+        f_add_display2(2);
+
+        // store a call to a member function and object ptr
+        std::function<void(int)> f_add_display3 = std::bind( &Foo::print_add, &foo, _1 );
+        f_add_display3(3);
+
+        // store a call to a function object
+        std::function<void(int)> f_display_obj = PrintNum();
+        f_display_obj(18);
+    }
+    ```
+
 ### nice std::function 
 pass a lambda block `[variable](){}` or `std::bind(&class::fun, this)` to std::function<void()>  
   ```c++
@@ -42,12 +117,4 @@ pass a lambda block `[variable](){}` or `std::bind(&class::fun, this)` to std::f
 
   ```
 
-### std::bind
 
-函数使用形式
-bind(f [,t][,…])                                                 // 自动推断
-bind<返回值类型>(f [,t][,…])                                       // 非自动推断
-bind<返回值类型, 函数类型, 绑定器传入参数类型>(f ,[…])                 // 非自动推断
-bind<返回值类型, 函数参数类型, 绑定器传入参数类型>(f [,…])              // 非自动推断
-bind<返回值类型, 类, 绑定器传入参数类型（即对应的类实例）>(T::*f ,t [,…])// 非自动推断
-bind<返回值类型, 类, 函数参数类型, 绑定器传入参数类型（即对应的类实例+函数传入的参数）, >(T::*f ,t [,…])  // 非自动推断
