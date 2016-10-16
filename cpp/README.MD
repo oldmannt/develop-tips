@@ -1,7 +1,10 @@
+### std::ref  
+std::ref<T> pass reference  
+
 ### shared_ptr manager resource
 
-    FILE* f=fopen("test.txt","r");
-    std::shared_ptr<FILE> auto_close(f,&fclose);
+
+    std::shared_ptr<FILE> auto_close(fopen("test.txt","r"),&fclose);
 
 ### sleep 
 
