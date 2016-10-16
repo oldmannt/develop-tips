@@ -1,3 +1,12 @@
+### shared_ptr manager resource
+
+    FILE* f=fopen("test.txt","r");
+    std::shared_ptr<FILE> auto_close(f,&fclose);
+
+### sleep 
+
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+
 ### about implement std::bind
 http://en.cppreference.com/w/cpp/utility/functional/bind
 http://blog.think-async.com/2010/04/bind-illustrated.html  
