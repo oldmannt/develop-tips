@@ -1,3 +1,7 @@
+### AVCaptureVideoDataOutputSampleBufferDelegate stop
+after save 19 CMSampleBufferRef (by CFRetain), AVCaptureVideoDataOutputSampleBufferDelegate.captureOutput wouldn't be call again. I think I should copy data from CMSampleBufferRef, should not CFRetain it
+1. yes, I should copy data from CMSampleBufferRef, and let it be release
+2. if I CFRetain CMSampleBufferRef, it will be very slow, it will stop after 19 CMSampleBufferRef
 ### build cpp
 https://sites.google.com/a/android.com/tools/tech-docs/external-c-builds
 
