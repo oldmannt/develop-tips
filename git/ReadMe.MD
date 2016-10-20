@@ -1,3 +1,10 @@
+### update frome remote
+
+	git fetch origin master:temp // get remote master branch as local temp
+	git merge temp
+	
+fix conflict, check the conflicting files, and fix conflict in text edit or ide
+
 ### compare with remote
 
 	```git
