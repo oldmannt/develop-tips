@@ -1,3 +1,35 @@
+### loading indicate
+
+	```swift
+	if nil == m_indicate {
+            if !show {
+                return
+            }
+            m_indicate = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            m_indicate?.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+            m_indicate?.center = (top_vc?.view.center)!
+            
+            m_indicateOverlay = UIView(frame: (top_vc?.view.bounds)!)
+            m_indicateOverlay?.backgroundColor = UIColor.black
+            m_indicateOverlay?.alpha = 0.5
+            m_indicateOverlay?.tag = self.getAddress(object: m_indicateOverlay!)
+            m_indicateOverlay?.addSubview(m_indicate!)
+        }
+        
+        m_indicateOverlay?.isHidden = !show
+        if show {
+            if nil == top_vc?.view.viewWithTag((m_indicateOverlay?.tag)!){
+                top_vc?.view.addSubview(m_indicateOverlay!)
+            }
+            m_indicate?.startAnimating()
+            top_vc?.view.bringSubview(toFront: m_indicateOverlay!)
+        }
+        else {
+            m_indicate?.stopAnimating()
+            m_indicateOverlay?.removeFromSuperview()
+        }
+	```
+
 ### timer delay
 
 	```swift
