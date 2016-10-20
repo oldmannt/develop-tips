@@ -1,3 +1,17 @@
+### caculate fps
+a 65 years old issue
+
+	// some where in the loop
+	let elapse = CACurrentMediaTime()-m_last_tick
+        m_second_counter+=elapse
+        m_frame_counter += 1.0
+        if m_second_counter >= 1.0 {
+            m_frame_rate = m_frame_counter/m_second_counter;
+            m_frame_counter = 0.0
+            m_second_counter = 0.0
+        }
+        m_last_tick = CACurrentMediaTime()
+
 ### AVCaptureVideoDataOutputSampleBufferDelegate stop
 after save 19 CMSampleBufferRef (by CFRetain), AVCaptureVideoDataOutputSampleBufferDelegate.captureOutput wouldn't be call again. I think I should copy data from CMSampleBufferRef, should not CFRetain it
 1. yes, I should copy data from CMSampleBufferRef, and let it be release
