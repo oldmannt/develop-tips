@@ -1,3 +1,6 @@
+### Processing Symbol Files
+It downloads the (debug) symbols from the device, so it becomes possible to debug on devices with that specific iOS version and also to symbolicate crash reports that happened on that iOS version.
+
 ### loading indicate
 
 	```swift
