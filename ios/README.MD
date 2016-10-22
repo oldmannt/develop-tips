@@ -1,3 +1,10 @@
+### AVFoundationErrorDomain Code=-11801
+`AVFoundationErrorDomain Code=-11801 Cannot Complete Action NSOSStatusErrorDomain Code=-12786 NSLocalizedRecoverySuggestion=Try again later`
+this happen when I capture picture in hide frequency, less than second on iphone 6s. After tons reached and tried, I found the reason.  
+I call `stillImageOutput.captureStillImageAsynchronously` to get picture in main thread, taking photo is hight cost job, focusing, explosing, flashing and so on will to be done in sub thread, after invoke the function in main thread will return immidiately, so probably before the job done, I will invoke the function againt, but the camera is busy, system tell me "Try again later"  
+solution is put `stillImageOutput.captureStillImageAsynchronously` to a Queue `dispatch_async`, it works.
+maybe apple just want you take photo outof the ui thread
+
 ### Processing Symbol Files
 It downloads the (debug) symbols from the device, so it becomes possible to debug on devices with that specific iOS version and also to symbolicate crash reports that happened on that iOS version.
 
