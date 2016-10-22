@@ -1,3 +1,23 @@
+### iOS 10: “[App] if we're in the real pre-commit handler we can't actually add any new fences due to CA restriction”
+most of them are in ios10, can't find why, but a solution  
+1. Click on your active scheme name right next to the Stop button  
+2. Click on Edit Scheme....  
+3. in Run (Debug) select the Arguments tab  
+4. in Environment Variables click +  
+5. add variable: OS_ACTIVITY_MODE = disable  
+
+### unowned and weak
+`[unowned self]` `[week self]`
+unowned: willn't keep instance alive, after instance die, reference willn't be nil, invoke will crash, you must sure it alive
+week: willn't keep instance alive, after instance die, reference will be nil
+
+### escaping and nonescaping closures in swift 3
+default is nonescaping in swift3  
+the compiler optimize nonescaping closure
+![image](https://github.com/oldmannt/develop-tips/raw/master/ios/closure-escape.png)  
+![image](https://github.com/oldmannt/develop-tips/raw/master/ios/closure-noescape.png)  
+details in https://swiftunboxed.com/lang/closures-escaping-noescape-swift3/  
+http://www.jianshu.com/p/266c2370effd  
 ### AVFoundationErrorDomain Code=-11801
 `AVFoundationErrorDomain Code=-11801 Cannot Complete Action NSOSStatusErrorDomain Code=-12786 NSLocalizedRecoverySuggestion=Try again later`  
 	this happen when I capture picture in hide frequency, less than second on iphone 6s. After tons reached and tried, I found the reason.  
