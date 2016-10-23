@@ -1,3 +1,14 @@
+### disable auto-lock
+	```swift
+	    func applicationWillResignActive(_ application: UIApplication) {
+			UIApplication.shared.isIdleTimerDisabled = false
+	    }
+
+	    func applicationDidBecomeActive(_ application: UIApplication) {
+			UIApplication.shared.isIdleTimerDisabled = true
+	    }
+	```
+
 ### iOS 10: “[App] if we're in the real pre-commit handler we can't actually add any new fences due to CA restriction”
 most of them are in ios10, can't find why, but a solution  
 1. Click on your active scheme name right next to the Stop button  
