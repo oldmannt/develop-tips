@@ -1,3 +1,10 @@
+### std::move
+
+    ```c++
+    std::string bar = "bar-string";
+    std::string xx = std::move(bar); // x == "bar-string", bar unspecified 
+    ```
+    move `bar` to xx, then destory bar
 ### std::ref  
 std::ref<T> pass reference  
 
