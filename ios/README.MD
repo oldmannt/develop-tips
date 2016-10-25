@@ -1,3 +1,8 @@
+### swift kvo exzmple
+addObserver  
+https://gist.github.com/correia/001923bc420b942f9865  
+https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/AdoptingCocoaDesignPatterns.html#//apple_ref/doc/uid/TP40014216-CH7-XID_8
+
 ### disable auto-lock
 	```swift
 	    func applicationWillResignActive(_ application: UIApplication) {
