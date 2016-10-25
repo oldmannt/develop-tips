@@ -1,5 +1,5 @@
 ### std::move
-
+http://www.cplusplus.com/reference/utility/move/
     ```c++
     std::string bar = "bar-string";
     std::string xx = std::move(bar); // x == "bar-string", bar unspecified 
