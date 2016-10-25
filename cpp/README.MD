@@ -4,7 +4,7 @@ http://www.cplusplus.com/reference/utility/move/
     std::string bar = "bar-string";
     std::string xx = std::move(bar); // x == "bar-string", bar unspecified 
     ```
-    move `bar` to xx, then destory bar
+    move `bar` to xx, then destory bar, work on stl type
 ### std::ref  
 std::ref<T> pass reference  
 
