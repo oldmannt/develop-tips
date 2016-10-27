@@ -10,16 +10,16 @@ another way, it doesn't looks better than unique_look
    ```
 
 ### unique_lock
-unique_lock is movable but not copyable.
-1. unique_lock() noexcept;   //empty unique_lock  
+unique_lock is movable but not copyable.  
+1. unique_lock() noexcept;   //empty unique_lock
 2. explicit unique_lock (mutex_type& m); //own mutex，invoke mutex.lock()   
 3. unique_lock (mutex_type& m, try_to_lock_t tag); //invoke mutex.try_lock()  
 4. unique_lock (mutex_type& m, defer_lock_t tag) noexcept;// don't lock, just manager, will unlock when it die  
 5. unique_lock (mutex_type& m, adopt_lock_t tag);//m was locked when I born, I'll unlock m when I die  
 6. template `<class Rep, class Period>`  
-   unique_lock (mutex_type& m, const chrono::duration<Rep,Period>& rel_time);// mutex.try_lock_for(rel_time)  
+   unique_lock (mutex_type& m, const chrono::duration`<Rep,Period>`& rel_time);// mutex.try_lock_for(rel_time)  
 7. template `<class Clock, class Duration>`  
-   unique_lock (mutex_type& m, const chrono::time_point<Clock,Duration>& abs_time);//mutex.try_lock_until(abs_time)  
+   unique_lock (mutex_type& m, const chrono::time_point`<Clock,Duration>`& abs_time);//mutex.try_lock_until(abs_time)  
 8.unique_lock (const unique_lock&) = delete; // disable copy constructor  
 9.unique_lock (unique_lock&& x); // move  
 
