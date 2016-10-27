@@ -1,3 +1,12 @@
+### lambda
+![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/lamda01.jpeg)  
+https://msdn.microsoft.com/zh-cn/library/dd293608.aspx  
+1. capture clause (Also known as the lambda-introducer in the C++ specification.)  
+2. parameter list Optional.  (Also known as the lambda declarator)  
+3. mutable specification Optional.  
+4. exception-specification Optional.  
+5. trailing-return-type Optional.  
+6. lambda body)  
 ### time
     
     ```c++
