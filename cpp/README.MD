@@ -11,7 +11,7 @@ another way, it doesn't looks better than unique_look
 
 ### unique_lock
 unique_lock is movable but not copyable.  
-1. unique_lock() noexcept;   //empty unique_lock
+1. unique_lock() noexcept;   //empty unique_lock  
 2. explicit unique_lock (mutex_type& m); //own mutex，invoke mutex.lock()   
 3. unique_lock (mutex_type& m, try_to_lock_t tag); //invoke mutex.try_lock()  
 4. unique_lock (mutex_type& m, defer_lock_t tag) noexcept;// don't lock, just manager, will unlock when it die  
