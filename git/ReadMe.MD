@@ -1,3 +1,11 @@
+### diff
+	git diff hash1 hash2 --stat  
+	git diff branch1 branch2 --stat  
+	git diff filename  
+	git diff –cached  
+	git diff –cached filename  
+	git diff hash1:filename hash2:filename  
+	
 ### update frome remote
 
 	git fetch origin master:temp // get remote master branch as local temp
