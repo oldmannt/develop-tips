@@ -1,3 +1,14 @@
+### lock_guard
+another way, it doesn't looks better than unique_look
+   ```C++
+   if (_mutex.try_lock()) { 
+       std::lock_guard<std::mutex> guard(_mutex, std::adopt_lock);
+       if (m_queue_mt_excuser.size()!=0){
+           // critical setion
+       }
+   } // mutex will be unlocked here
+   ```
+
 ### unique_lock
 unique_lock is movable but not copyable.
 1. unique_lock() noexcept;   //empty unique_lock
@@ -9,8 +20,15 @@ unique_lock is movable but not copyable.
    unique_lock (mutex_type& m, const chrono::duration<Rep,Period>& rel_time);// mutex.try_lock_for(rel_time)  
 7. template <class Clock, class Duration>  
    unique_lock (mutex_type& m, const chrono::time_point<Clock,Duration>& abs_time);//mutex.try_lock_until(abs_time)
-8 unique_lock (const unique_lock&) = delete; // disable copy constructor  
-9 unique_lock (unique_lock&& x); // move
+8.unique_lock (const unique_lock&) = delete; // disable copy constructor  
+9.unique_lock (unique_lock&& x); // move
+
+    ```C++
+    std::unique_lock<std::mutex> try_lock(m_mt_task, std::try_to_lock);
+    if (try_lock.owns_lock() && m_queue_mt_excuser.size()!=0){
+        // critical section
+    }
+    ```
 
 ### lambda
 ![image](https://github.com/oldmannt/develop-tips/raw/master/cpp/lamda01.jpeg)  
