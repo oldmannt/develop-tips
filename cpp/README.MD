@@ -1,5 +1,17 @@
+### time
+    
+    ```c++
+    //getTickCount by millisecond, in mac64, long long is 8 bits
+    long long nowMilli(){
+        using namespace std::chrono;
+        return duration_cast<milliseconds>(steady_clock::now().time_since_epoch()).count();
+    }
+    ```
+    
+
 ### std::move
-http://www.cplusplus.com/reference/utility/move/
+http://www.cplusplus.com/reference/utility/move/  
+
     ```c++
     std::string bar = "bar-string";
     std::string xx = std::move(bar); // x == "bar-string", bar unspecified 
