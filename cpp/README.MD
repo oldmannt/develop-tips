@@ -1,3 +1,9 @@
+### thread
+
+    ```C++
+    std::thread::id this_id = std::this_thread::get_id();
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    ```
 ### lock_guard
 another way, it doesn't looks better than unique_look
    ```C++
