@@ -1,3 +1,7 @@
+### capturePhotoOutput new in ios10
+https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/PhotoCaptureGuide/  
+https://developer.apple.com/library/content/samplecode/AVCam/Introduction/Intro.html
+
 ### swift kvo exzmple
 addObserver  
 https://gist.github.com/correia/001923bc420b942f9865  
