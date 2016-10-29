@@ -674,7 +674,7 @@ upload app keyword to keep me rember
 WWDR intermediate certificate  
 1. Create App ID
 developer.apple.com->Account->Certificates->Idenitifiers->"+" to create an App ID  
-sku -> fill what you like which is unique
+sku -> fill what you like which is unique  
 2. Create Production Certificates(If created, pass)  
 &ensp;&ensp;&ensp;&ensp;developer.apple.com->Account->Certificates->Production->"+"->"App Store and Ad Hoc"  
 &ensp;&ensp;&ensp;&ensp;Create a CSR file. just do as the page said  
