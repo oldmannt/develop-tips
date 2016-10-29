@@ -1,3 +1,6 @@
+### video frame rate and exposure duration
+`activeVideoMaxFrameDuration` and `activeVideoMinFrameDuration` will effect `AVCaptureDevice.exposureDuration`
+
 ### capturePhotoOutput new in ios10
 https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/PhotoCaptureGuide/  
 https://developer.apple.com/library/content/samplecode/AVCam/Introduction/Intro.html
