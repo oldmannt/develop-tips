@@ -1,11 +1,10 @@
 ### -D DEBUG
-	`build setting -> Swift Compiler - Custom Flags -> Other Swift Flags -> Debug`  
-	add "-D DEBUG"
+`build setting -> Swift Compiler - Custom Flags -> Other Swift Flags -> Debug` add "-D DEBUG"  
 	
 	```swift
 	#if DEBUG
             m_updateDebugInfo = GBTimerGen.create(300, repeatTimes: -1, hander: self)
-    #endif
+    	#endif
 	```
 
 ### compare CMTime
