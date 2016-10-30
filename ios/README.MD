@@ -1,3 +1,13 @@
+### -D DEBUG
+	`build setting -> Swift Compiler - Custom Flags -> Other Swift Flags -> Debug`  
+	add "-D DEBUG"
+	
+	```swift
+	#if DEBUG
+            m_updateDebugInfo = GBTimerGen.create(300, repeatTimes: -1, hander: self)
+    #endif
+	```
+
 ### compare CMTime
 	@function	CMTimeCompare  
     @abstract   Returns the numerical relationship (-1 = less than, 1 = greater than, 0 = equal) of two CMTimes.
