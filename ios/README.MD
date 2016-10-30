@@ -1,5 +1,12 @@
+### compare CMTime
+	@function	CMTimeCompare  
+    @abstract   Returns the numerical relationship (-1 = less than, 1 = greater than, 0 = equal) of two CMTimes.
+
+
 ### video frame rate and exposure duration
 `activeVideoMaxFrameDuration` and `activeVideoMinFrameDuration` will effect `AVCaptureDevice.exposureDuration`
+from doc:  
+When exposureMode is AVCaptureExposureModeCustom, frame rate and exposure duration are interrelated. If you call setExposureModeCustomWithDuration:ISO:completionHandler: with an exposureDuration longer than the current activeVideoMaxFrameDuration, the activeVideoMaxFrameDuration will be lengthened to accommodate the longer exposure time. Setting a shorter exposure duration does not automatically change the activeVideoMinFrameDuration or activeVideoMaxFrameDuration. To explicitly increase the frame rate in custom exposure mode, you must set the activeVideoMaxFrameDuration to a shorter value. If your new max frame duration is shorter than the current exposureDuration, the exposureDuration will shorten as well to accommodate the new frame rate.
 
 ### capturePhotoOutput new in ios10
 https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/PhotoCaptureGuide/  
