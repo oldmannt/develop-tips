@@ -1,3 +1,12 @@
+### ffmpeg encode rotated video 
+
+	```C++
+	 AVStream *out_stream = avformat_new_stream(ofmt_ctx, in_stream->codec->codec);
+	 ret = av_dict_set(&out_stream->metadata,"rotate","90",0); //rotate 90 degrees
+	if(ret>=0){
+		printf("=========yes=====set rotate success!===\n");
+	}
+	```
 ### caculate fps
 a 65 years old issue
 
