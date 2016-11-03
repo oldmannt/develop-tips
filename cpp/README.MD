@@ -1,3 +1,11 @@
+### set 
+only sort the item when it insert, after inserted, modify the item may make set be unsorted. on xcode 8.1 c++11
+
+### constructor
+  noncopyable() =default;
+  noncopyable(const noncopyable&) =delete;
+  noncopyable& operator=(const noncopyable&) =delete;
+
 ### thread
 
     ```C++
