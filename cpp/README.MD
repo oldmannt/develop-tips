@@ -1,3 +1,6 @@
+### release and deubg
+if some code running the different result, usually I forgot to initialize some variable
+
 ### set 
 only sort the item when it insert, after inserted, modify the item may make set be unsorted. on xcode 8.1 c++11
 
