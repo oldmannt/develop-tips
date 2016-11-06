@@ -1,3 +1,6 @@
+### platform version, api level
+https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#provisional
+arm64-v8a start from 5.0 or api 21
 ### force make to build a targe
 
     ```
