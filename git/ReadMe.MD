@@ -1,3 +1,14 @@
+### list files
+`git ls-files`
+
+### ignore files which have been commit
+	
+	```
+	git rm --cached -r files
+	git add .gitignore
+	git commit -m "xxx"
+	```
+
 ### diff
 	git diff hash1 hash2 --stat  
 	git diff branch1 branch2 --stat  
@@ -12,6 +23,8 @@
 	git merge temp
 	
 fix conflict, check the conflicting files, and fix conflict in text edit or ide
+
+
 
 ### compare with remote
 
