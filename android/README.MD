@@ -1,3 +1,6 @@
+### fragment lifecycle
+![image](https://github.com/oldmannt/develop-tips/raw/master/android/fragment_lifecycle.png) 
+![image](https://github.com/oldmannt/develop-tips/raw/master/android/activity_fragment_lifecycle.png) 
 ### platform version, api level
 https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#provisional
 arm64-v8a start from 5.0 or api 21
