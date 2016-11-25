@@ -7,6 +7,7 @@ Try to undock Asset Store window -_-!
   public class camera : MonoBehaviour {
     private Texture tex;
     void Start () {
+      // default path is "Assets/Resources"
       tex = Resources.Load ("expl_big") as Texture;
     }
 
