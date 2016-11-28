@@ -1,3 +1,6 @@
+### unpack apk
+java -jar -Xmx512M -Djava.awt.headless=true apktool.jar -f --output ./output d ./xxx.apk
+
 ### fragment lifecycle
 ![image](https://github.com/oldmannt/develop-tips/raw/master/android/fragment_lifecycle.png) 
 ![image](https://github.com/oldmannt/develop-tips/raw/master/android/activity_fragment_lifecycle.png) 
