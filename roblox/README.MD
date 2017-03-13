@@ -7,3 +7,7 @@
 #### GUI text won't change
 The StarterGui is the gui setup that is copied into the playergui when you respawn.
   guiText = game.Players.LocalPlayer.PlayerGui.ScreenGui.TextLabel.Text
+
+#### PlayerGui is not a valid member of Player  
+probably, the code was running before the PlayerGui loaded. Deed 'WaitForChinld(name)'
+  playerr:WaitForChild("PlayerGui").ScreenGui
