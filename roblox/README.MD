@@ -11,3 +11,6 @@ The StarterGui is the gui setup that is copied into the playergui when you respa
 #### PlayerGui is not a valid member of Player  
 probably, the code was running before the PlayerGui loaded. Deed `WaitForChinld(name)`  
     `playerr:WaitForChild("PlayerGui").ScreenGui`
+
+#### P4V A given file is missing from my Workspace, but present at the Perforce Depot.  
+    use the "Get Revision..." item and in the subsequent dialog, you can check the "force operation" checkbox
