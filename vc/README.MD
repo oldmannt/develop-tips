@@ -12,3 +12,9 @@ open ~/.bash_profile
 
 ### Perforce "Parallel file transfer must be enabled using net.parallel.max"
  disable parallel sync in P4V -> Preferences -> Server Data
+
+#### P4V A given file is missing from my Workspace, but present at the Perforce Depot.  
+    use the "Get Revision..." item and in the subsequent dialog, you can check the "force operation" checkbox
+    
+#### show all connection of PID
+    netstat -a -n -o|findstr "PID"  
