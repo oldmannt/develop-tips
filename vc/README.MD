@@ -18,3 +18,11 @@ open ~/.bash_profile
     
 #### show all connection of PID
     netstat -a -n -o|findstr "PID"  
+    
+#### P4 "all revision(s) already integrated" 
+    "advanced options" -f
+    
+#### P4 "Back Out" and "Rollback"
+    "Back out" only remove target change list, keep the newer change list  
+    "Rollback" remove all the change list after target  
+    but "Rollback" don't work to me, I just "Back Out" one by one
