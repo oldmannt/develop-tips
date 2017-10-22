@@ -398,3 +398,38 @@ the "Editing Did End" event added in storyboard,  but I forget it, when the even
 ###A valid provisioning profile for this executable was not found
 change code signing to Developer
 
+### SSH to a linux server via rsa key
+generate pub/pri key on local then copy the pub key to server  
+1. local  
+
+	$  ssh-keygen -t rsa  
+	$  #enter file name, generate `filename` and `filename.pub` at document  
+	$  #enter password or leave empty  
+	$  scp ~/.ssh/filename.pub sample@server:~/.ssh  
+	copy the files to ~/.ssh  
+	config ~/.ssh/config  
+	```
+	Host name 
+  	HostName ip/dns 
+  	User root 
+  	IdentityFile ~/.ssh/filename #the privte key 
+	```
+2. server  
+	ssh to server via password   
+	make sure the pub key in server:~/.ssh  
+	
+	$cd ~/.ssh
+	$ls 
+	$ #if authorized_keys is there
+	$cat -n ~/.ssh/my_rsa.pub ~/.ssh/authorized_keys
+	$ #if no authorized_keys
+	$cp ~/.ssh/my_rsa.pub ~/.ssh/authorized_keys
+	
+	config /etc/ssh/sshd_config
+	```
+	RSAAuthentication yes
+	PubkeyAuthentication yes
+	PermitRootLogin yes
+	PasswordAuthentication no #after every thing ok and test modify this
+	```
+
