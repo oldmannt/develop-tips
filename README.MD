@@ -405,7 +405,7 @@ generate pub/pri key on local then copy the pub key to server
 	$  ssh-keygen -t rsa  
 	$  #enter file name, generate `filename` and `filename.pub` at document  
 	$  #enter password or leave empty  
-	$  scp ~/.ssh/filename.pub sample@server:~/.ssh  
+	$  scp ~/.ssh/filename.pub sample@server: ~/.ssh  
 	copy the files to ~/.ssh  
 	config ~/.ssh/config  
 	```
@@ -415,17 +415,17 @@ generate pub/pri key on local then copy the pub key to server
   	IdentityFile ~/.ssh/filename #the privte key 
 	```
 2. server  
-	ssh to server via password   
-	make sure the pub key in server:~/.ssh  
+	ssh to server via password    
+	make sure the pub key in server:~/.ssh    
 	
-	$cd ~/.ssh
-	$ls 
-	$ #if authorized_keys is there
-	$cat -n ~/.ssh/my_rsa.pub ~/.ssh/authorized_keys
-	$ #if no authorized_keys
-	$cp ~/.ssh/my_rsa.pub ~/.ssh/authorized_keys
+	$cd ~/.ssh  
+	$ls   
+	$ #if authorized_keys is there  
+	$cat -n ~/.ssh/my_rsa.pub ~/.ssh/authorized_keys  
+	$ #if no authorized_keys  
+	$cp ~/.ssh/my_rsa.pub ~/.ssh/authorized_keys  
 	
-	config /etc/ssh/sshd_config
+	config /etc/ssh/sshd_config  
 	```
 	RSAAuthentication yes
 	PubkeyAuthentication yes
