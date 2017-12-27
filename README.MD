@@ -414,7 +414,7 @@ generate pub/pri key on local then copy the pub key to server
   	User root 
   	IdentityFile ~/.ssh/filename #the privte key 
 	```
-	ssh-copy-id -i ~/.ssh/filename.pub USER@HOST
+	ssh-copy-id -i ~/.ssh/filename.pub USER@HOST #if this works no need "2. server"
 2. server  
 	ssh to server via password    
 	make sure the pub key in server:~/.ssh    
