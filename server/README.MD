@@ -100,5 +100,5 @@ cd /root/aria2/webui
 $ nohup python -m SimpleHTTPServer 8991 &   //可以通过8991访问web ui
 ln -s /root/downloads /root/aria2/webui/downloads
 ```
-access by http://hostip:8991
+access by http://hostip:8991  
 download the completed files by http://hostip:8991/downloads
