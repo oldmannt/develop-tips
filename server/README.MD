@@ -169,9 +169,9 @@ rsync -P -e "ssh -i key_abs_path" root@host:/path/to/file1 :/path/to/file2 :/pat
 
 #### http download files in one command line
 ```
-wget http://host:port/path-file1 && \
-wget http://host:port/path-file1 && \
-wget http://host:port/path-file1 && \
+wget http://host:port/path-file1 -P /target-path && \
+wget http://host:port/path-file1 -P /target-path && \
+wget http://host:port/path-file1 -P /target-path && \
 ....
 ```
 it's not secure.
