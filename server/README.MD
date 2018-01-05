@@ -175,3 +175,34 @@ wget http://host:port/path-file1 -P /target-path && \
 ....
 ```
 it's not secure.
+
+#### sftp download files
+```
+sftp -i ~/.ssh/vps -b ~/batchfile root@host
+```
+`~/batchfile` is batch of sftp commands like
+```
+get /root/downloads/1 /Users/dyno/Downloads
+get /root/downloads/1 /Users/dyno/Downloads
+```
+some long path for `get` will fail even `ls` can display them in `sftp>`.
+
+#### how to see full link path
+readlink -f linkpath
+
+#### delete a directory
+rm -rf mydir
+
+#### check the process listen on a specific port
+80 for example, on asuswrt-merlin system
+```
+lsof -n -i :80 | grep LISTEN
+httpd   498 root    5u  IPv4   1472      0t0  TCP 192.168.1.1:www (LISTEN)
+httpd   498 root    6u  IPv4   1473      0t0  TCP 127.0.0.1:www (LISTEN)
+```
+netstat, which doesn't has '-p' on asuswrt-merlin  
+```
+netstat -nlp | grep :6800
+tcp        0      0 0.0.0.0:6800            0.0.0.0:*               LISTEN      8886/aria2c     
+tcp6       0      0 :::6800                 :::*                    LISTEN      8886/aria2c 
+```
