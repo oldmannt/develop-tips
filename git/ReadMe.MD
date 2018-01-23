@@ -132,3 +132,45 @@ list you files and directories in .git/info/sparse-checkout
     $echo “resource/css” >> .git/info/sparse-checkout
     $git pull origin master
     
+### SSH KEY
+``` shell
+$ ssh-keyget -t rsa -b 4096 -C "your_email@x.com"
+$ ssh-add -K ~/.ssh/id_rsa
+$ pbcopy < ~/.ssh/id_rsa.pub
+$ ssh -T git@github.com # test, check output
+# then paste to github->accout->ssh key
+```
+
+### init and merge remote to local
+``` shell
+$ git init
+$ git remote add origin https://github.com/oldmannt/learnNodeJS.git
+$ git pull origin master
+```
+
+### modify
+``` shell
+$ git add <filename>
+$ git add * # add all the modification
+$ git status # check what modified
+# undo git add
+$ git reset -- <file1> <file2> ...
+$ git reset . # undo all
+# commit to local repository
+$ git commit -m "say something"
+$ git log
+```
+
+### diff/merge tools
+``` shell
+$ git config --global --add diff.tool kdiff3
+$ git config --global --add diff.tool.kdiff3.path /Applications/kdiff3.app/Contents/MacOS/kdiff3 
+$ git config --global --add diff.tool.kdiff3.trustExitCode false
+$ git difftool HEAD^
+
+$ git config --global --add merge.tool kdiff3
+$ git config --global --add merge.tool.kdiff3.path /Applications/kdiff3.app/Contents/MacOS/kdiff3 
+$ git config --global --add merge.tool.kdiff3.trustExitCode false
+```
+It's not good. We can't see the list of files for diff result. It just show the file one by one after we close the previous one.
+SourceTree is more nice.
