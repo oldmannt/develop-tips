@@ -7,15 +7,7 @@
 	git rm --cached -r files
 	git add .gitignore
 	git commit -m "xxx"
-	```
-
-### diff
-	git diff hash1 hash2 --stat  
-	git diff branch1 branch2 --stat  
-	git diff filename  
-	git diff –cached  
-	git diff –cached filename  
-	git diff hash1:filename hash2:filename  
+	```  
 	
 ### update frome remote
 
@@ -100,12 +92,12 @@ delete submodule
 ### pushing to remotes
 $git push [remote-name] [branch-name]
 	
-###git discard
+### git discard
 
-####This will unstage all files you might have staged with git add:  
+#### This will unstage all files you might have staged with git add:  
 
 	git reset
-####This will revert all local uncommitted changes (should be executed in repo root):  
+#### This will revert all local uncommitted changes (should be executed in repo root):  
 
 	git checkout .
 You can also revert uncommitted changes only to particular file or directory:
@@ -114,11 +106,11 @@ You can also revert uncommitted changes only to particular file or directory:
 Yet another way to revert all uncommitted changes (longer to type, but works from any subdirectory):  
 
 	git reset --hard HEAD
-####This will remove all local untracked files, so only git tracked files remain:
+#### This will remove all local untracked files, so only git tracked files remain:
 
 	git clean -fdx
 	
-###Git Sparse Checkout  
+### Git Sparse Checkout  
 
     $mkdir project_folder
     $cd project_folder
@@ -175,6 +167,13 @@ $ git config --global --add merge.tool.kdiff3.trustExitCode false
 ```
 It's not good. We can't see the list of files for diff result. It just show the file one by one after we close the previous one.
 SourceTree is more nice.
+
+$ git diff hash1 hash2 --stat  
+$ git diff branch1 branch2 --stat  
+$ git diff filename  
+$ git diff –cached  
+$ git diff –cached filename  
+$ git diff hash1:filename hash2:filename
 
 ### merger to github
 ```
