@@ -175,3 +175,15 @@ $ git config --global --add merge.tool.kdiff3.trustExitCode false
 ```
 It's not good. We can't see the list of files for diff result. It just show the file one by one after we close the previous one.
 SourceTree is more nice.
+
+### merger to github
+```
+$ git remote -v # check the url and branch name
+$ git remote origin master # roigin: remote branch, master: local branch
+```
+fatal: Authentication failed  
+```
+$ ssh-add -K ~/.ssh/github_id_rsa # the private key for github
+$ $ git remote origin master # input username, password. weird what the ssh for
+```
+$
