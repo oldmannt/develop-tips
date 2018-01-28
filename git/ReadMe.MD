@@ -150,6 +150,7 @@ $ git pull origin master
 
 ### modify
 ``` shell
+$ git status # show the status
 $ git add <filename>
 $ git add * # add all the modification
 $ git status # check what modified
