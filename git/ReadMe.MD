@@ -168,13 +168,14 @@ $ git config --global --add merge.tool.kdiff3.trustExitCode false
 It's not good. We can't see the list of files for diff result. It just show the file one by one after we close the previous one.
 SourceTree is more nice.
 
+```
 $ git diff hash1 hash2 --stat  
 $ git diff branch1 branch2 --stat  
 $ git diff filename  
 $ git diff –cached  
 $ git diff –cached filename  
 $ git diff hash1:filename hash2:filename
-
+```
 ### merger to github
 ```
 $ git remote -v # check the url and branch name
