@@ -186,4 +186,10 @@ fatal: Authentication failed
 $ ssh-add -K ~/.ssh/github_id_rsa # the private key for github
 $ $ git remote origin master # input username, password. weird what the ssh for
 ```
-$
+
+### show history of a file
+``` shell
+$ gitk [filename]
+# or to follow filename past renames
+$ gitk --follow [filename]
+```
