@@ -75,6 +75,28 @@ http://www.cplusplus.com/reference/utility/move/
     std::string xx = std::move(bar); // x == "bar-string", bar unspecified 
     ```
     move `bar` to xx, then destory bar, work on stl type
+    std::move is kind of cast to T&&, then move constractor will triger
+    
+### RVO NRVO
+  when these optimizations won't work when function have different return paths with different named objects.  
+```C++
+  Foo fun()
+  {
+    return Foo(); // RVO
+  }
+  Foo fun()
+  {
+    Foo foo;
+    return foo; // NRVO
+  }
+  Foo fun(int i)
+  {
+    Foo f1,f2;
+    if (i>1) return f1;
+    else return f2;
+  }
+```
+
 ### std::ref  
 std::ref<T> pass reference  
 
