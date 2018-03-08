@@ -193,3 +193,13 @@ $ gitk [filename]
 # or to follow filename past renames
 $ gitk --follow [filename]
 ```
+
+### shelve
+``` shell
+git stash push -m 'shelve name'
+git stash list 			# show the shelved list
+stash@{0}: On master: shelve name
+stash@{1}: On master: test
+git stash show -p stash@{0}	# show the diff
+git stash apply stash@{1}	# unshelve "test"
+```
