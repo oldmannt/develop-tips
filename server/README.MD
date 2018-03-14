@@ -36,6 +36,7 @@ apt-get install aria2
 mkdir /root/aria2c  -p    //新建一个文件夹放置aria2的配置文件，如果路径中有不存在的文件夹，就加-p建立相应的路径
 touch /root/aria2c/aria2.session //在该文件夹下建立一个session文件用于中断程序后的重新连接，出错时有用
 touch /root/aria2c/aria2.conf // modify conf by sftp, conf will be showed below
+aria2c --conf-path=/root/aria2c/aria2.conf -D
 ```
 
 aria2.conf file
