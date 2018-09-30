@@ -71,3 +71,12 @@ $npm install -g tslint
 $tsc --init // generate tsconfig.json
 $npm install -D @types/express
 ```
+
+## typescript
+
+### declare keywords
+Declare vs. var  
+var creates a new variable. declare is used to tell TypeScript that the variable has been created elsewhere. If you use declare, nothing is added to the JavaScript that is generated - it is simply a hint to the compiler.  
+
+For example, if you use an external script that defines var externalModule, you would use declare var externalModule to hint to the TypeScript compiler that externalModule has already been set up  
+
