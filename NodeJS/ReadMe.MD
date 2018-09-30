@@ -80,3 +80,17 @@ var creates a new variable. declare is used to tell TypeScript that the variable
 
 For example, if you use an external script that defines var externalModule, you would use declare var externalModule to hint to the TypeScript compiler that externalModule has already been set up  
 
+### this
+Any access to this keyword within a function is actually controlled by how the function is actually called. It is commonly referred to as the “calling context.”  
+``` typescript
+function foo() {
+  console.log(this);
+}
+
+foo(); // logs out the global e.g. `window` in browsers
+let bar = {
+  foo
+}
+bar.foo(); // Logs out `bar` as `foo` was called on `bar`
+```
+
