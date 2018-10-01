@@ -94,3 +94,15 @@ let bar = {
 bar.foo(); // Logs out `bar` as `foo` was called on `bar`
 ```
 
+### import {}
+An import declaration of the form
+```sh
+import d from "mod";
+```
+is exactly equivalent to the import declaration
+```sh
+import { default as d } from "mod";
+```
+we would omit the braces only when you are importing something that was exported as the `default` entity of the module (with an `export default` declaration, of which there can only be one per module). The name you provide in the `import` declaration becomes an alias for that imported entity.  
+When importing anything else, even if it's just one entity, you need to provide the braces.
+
