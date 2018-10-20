@@ -9,14 +9,14 @@
     brew install go
 ```
 
-    3. .bash_profile
+3. .bash_profile
 ```
     export GOROOT="/usr/local/Cellar/go/1.11.1/libexec"
     export GOPATH="/Users/llin/go"
     export GOBIN=$GOROOT/bin
     export PATH=$PATH:$GOROOT/bin
 ```
-    4. install vscode and go extension
+4. install vscode and go extension
     5. configue vs code
 ``` json
 {
@@ -34,7 +34,8 @@
     }
 }
 ```
-    6. vscode debuger
+
+6. vscode debuger
     https://github.com/Microsoft/vscode-go/wiki/Debugging-Go-code-using-VS-Code
     https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md
     install delve
