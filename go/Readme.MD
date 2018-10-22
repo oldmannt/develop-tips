@@ -16,8 +16,8 @@
     export GOBIN=$GOROOT/bin
     export PATH=$PATH:$GOROOT/bin
 ```
-4. install vscode and go extension
-    5. configue vs code
+4. install vscode and go extension  
+5. configue vs code
 ``` json
 {
     "go.autocompleteUnimportedPackages": true,
